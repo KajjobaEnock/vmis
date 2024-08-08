@@ -54,6 +54,40 @@
                 </li>
                 <!-- /Organisation Management -->
 
+                <!-- Employee Management -->
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">
+                        <i class="ph-tree-structure"></i>
+                        <span>Employee Management</span>
+                    </a>
+                    <ul class="nav-group-sub collapse">
+                        <li class="nav-item"><a href="table_basic" class="nav-link">Employees List</a></li>
+                        <li class="nav-item"><a href="table_sizing" class="nav-link">Promotions & Transfers</a></li>
+                        <li class="nav-item"><a href="table_borders" class="nav-link">Employee Types & Roles</a></li>
+                        <li class="nav-item"><a href="table_styling" class="nav-link">Positions</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Bands</a></li>
+                    </ul>
+                </li>
+                <!-- /Employee Management -->
+
+                <!-- Leave Management -->
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">
+                        <i class="ph-tree-structure"></i>
+                        <span>Leave Management</span>
+                    </a>
+                    <ul class="nav-group-sub collapse">
+                        <li class="nav-item"><a href="table_basic" class="nav-link">OrganChart</a></li>
+                        <li class="nav-item"><a href="table_sizing" class="nav-link">Directorates</a></li>
+                        <li class="nav-item"><a href="table_borders" class="nav-link">Departments</a></li>
+                        <li class="nav-item"><a href="table_styling" class="nav-link">Positions</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Teams</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Duty Stations</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Projects & CC Codes</a></li>
+                    </ul>
+                </li>
+                <!-- /Leave Management -->
+
 
 
                         <!-- Tables -->
