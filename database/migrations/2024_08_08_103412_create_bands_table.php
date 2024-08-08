@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('bands', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('grade');
+            $table->boolean('status')->default(0);
+            $table->text('details')->nullable();
             $table->timestamps();
         });
     }

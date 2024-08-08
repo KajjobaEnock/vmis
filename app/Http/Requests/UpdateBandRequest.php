@@ -11,7 +11,7 @@ class UpdateBandRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,10 @@ class UpdateBandRequest extends FormRequest
     {
         return [
             //
+            'name' => ['required', 'string', 'max:255'],
+            'grade' => ['required', 'string', 'max:255'],
+            'status' => ['required'],
+            'details' => ['nullable', 'string'],
         ];
     }
 }

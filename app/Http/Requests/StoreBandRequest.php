@@ -11,7 +11,7 @@ class StoreBandRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,9 @@ class StoreBandRequest extends FormRequest
     {
         return [
             //
+            'name' => ['required', 'string', 'max:255'],
+            'grade' => ['required', 'string', 'max:255'],
+            'details' => ['nullable', 'string'],
         ];
     }
 }

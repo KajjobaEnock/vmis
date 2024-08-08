@@ -35,7 +35,26 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-        
+
+                <!-- Organisation Management -->
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">
+                        <i class="ph-tree-structure"></i>
+                        <span>Organisation Management</span>
+                    </a>
+                    <ul class="nav-group-sub collapse">
+                        <li class="nav-item"><a href="table_basic" class="nav-link">OrganChart</a></li>
+                        <li class="nav-item"><a href="table_sizing" class="nav-link">Directorates</a></li>
+                        <li class="nav-item"><a href="table_borders" class="nav-link">Departments</a></li>
+                        <li class="nav-item"><a href="table_styling" class="nav-link">Positions</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Teams</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Duty Stations</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Projects & CC Codes</a></li>
+                    </ul>
+                </li>
+                <!-- /Organisation Management -->
+
+
 
                         <!-- Tables -->
                         <li class="nav-item nav-item-submenu">
@@ -105,9 +124,9 @@
                                 <li class="nav-item"><a href="datatable_extension_colvis" class="nav-link">Columns visibility</a></li>
                             </ul>
                         </li>
-                        <!-- /tables -->        
+                        <!-- /tables -->
 
-                
+
 
                         <!-- Forms -->
                         <li class="nav-item-header">

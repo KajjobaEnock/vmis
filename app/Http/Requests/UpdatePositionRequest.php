@@ -11,7 +11,7 @@ class UpdatePositionRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,14 @@ class UpdatePositionRequest extends FormRequest
     {
         return [
             //
+            'name' => ['required', 'string', 'max:255'],
+            'band' => ['required', 'integer'],
+            'team' => ['required', 'integer'],
+            'category1' => ['required', 'integer'],
+            'category2' => ['required', 'integer'],
+            'details' => ['nullable', 'string', 'max:255'],
+            'supervisor' => ['required', 'integer'],
+            'status' => ['required', 'string'],
         ];
     }
 }
