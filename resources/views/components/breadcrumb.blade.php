@@ -3,7 +3,7 @@
     <div class="page-header-content d-lg-flex border-top">
         <div class="d-flex">
             <div class="breadcrumb py-2">
-                <a href="" class="breadcrumb-item"><i class="ph-house"></i></a>
+                <a href="" class="breadcrumb-item"><i class="ph-house mr-2"></i> Home </a>
                 <a href="#" class="breadcrumb-item">{{$title}}</a>
                 <span class="breadcrumb-item active">{{$subtitle}}</span>
             </div>
@@ -15,7 +15,7 @@
 
         <div class="collapse d-lg-block ms-lg-auto" id="breadcrumb_elements">
             <div class="d-lg-flex mb-2 mb-lg-0">
-                
+
             </div>
         </div>
     </div>

@@ -15,7 +15,7 @@ class DirectorateController extends Controller
     {
         //
         return view('admin.orgn.directorates.index', [
-            //'directorates' => Directorate::all(),
+            'directorates' => Directorate::all(),
             'title' => 'Directorates',
             'subtitle' => 'Directorates List'
         ]);
