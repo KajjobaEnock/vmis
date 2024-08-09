@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LimitlessController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +23,12 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('{any}',[LimitlessController::class,'index'])->name('index');
+
+    //Administrator Routes
+    Route::prefix('admin')->group(function(){
+        //Organisation Management Routes
+        Route::prefix('organisation-management')->group(function(){
+            Route::resource('directorates', 'App\Http\Controllers\DirectorateController');
+        });
+    });
 });

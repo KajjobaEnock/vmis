@@ -44,7 +44,7 @@
                     </a>
                     <ul class="nav-group-sub collapse">
                         <li class="nav-item"><a href="table_basic" class="nav-link">OrganChart</a></li>
-                        <li class="nav-item"><a href="table_sizing" class="nav-link">Directorates</a></li>
+                        <li class="nav-item"><a href="{{ route('directorates.index') }}" class="nav-link">Directorates</a></li>
                         <li class="nav-item"><a href="table_borders" class="nav-link">Departments</a></li>
                         <li class="nav-item"><a href="table_styling" class="nav-link">Positions</a></li>
                         <li class="nav-item"><a href="table_elements" class="nav-link">Teams</a></li>
@@ -57,7 +57,7 @@
                 <!-- Employee Management -->
                 <li class="nav-item nav-item-submenu">
                     <a href="#" class="nav-link">
-                        <i class="ph-tree-structure"></i>
+                        <i class="ph-user-list"></i>
                         <span>Employee Management</span>
                     </a>
                     <ul class="nav-group-sub collapse">
@@ -73,20 +73,201 @@
                 <!-- Leave Management -->
                 <li class="nav-item nav-item-submenu">
                     <a href="#" class="nav-link">
-                        <i class="ph-tree-structure"></i>
+                        <i class="ph-calendar"></i>
                         <span>Leave Management</span>
                     </a>
                     <ul class="nav-group-sub collapse">
-                        <li class="nav-item"><a href="table_basic" class="nav-link">OrganChart</a></li>
-                        <li class="nav-item"><a href="table_sizing" class="nav-link">Directorates</a></li>
-                        <li class="nav-item"><a href="table_borders" class="nav-link">Departments</a></li>
-                        <li class="nav-item"><a href="table_styling" class="nav-link">Positions</a></li>
-                        <li class="nav-item"><a href="table_elements" class="nav-link">Teams</a></li>
-                        <li class="nav-item"><a href="table_elements" class="nav-link">Duty Stations</a></li>
-                        <li class="nav-item"><a href="table_elements" class="nav-link">Projects & CC Codes</a></li>
+                        <li class="nav-item"><a href="table_basic" class="nav-link">Overview</a></li>
+                        <li class="nav-item"><a href="table_sizing" class="nav-link">Leave Balances</a></li>
+                        <li class="nav-item"><a href="table_borders" class="nav-link">Leave Schedules</a></li>
+                        <li class="nav-item"><a href="table_styling" class="nav-link">Leave Requests</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Carryover Requests</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Leave Transactions</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Leave Types</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Leave Policies</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Settings & Configurations</a></li>
                     </ul>
                 </li>
                 <!-- /Leave Management -->
+
+                <!-- Recruitment & Hirining Management -->
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">
+                        <i class="ph-briefcase"></i>
+                        <span>Recruitment & Hiring</span>
+                    </a>
+                    <ul class="nav-group-sub collapse">
+                        <li class="nav-item"><a href="table_basic" class="nav-link">Overview</a></li>
+                        <li class="nav-item"><a href="table_sizing" class="nav-link">Leave Balances</a></li>
+                        <li class="nav-item"><a href="table_borders" class="nav-link">Leave Schedules</a></li>
+                        <li class="nav-item"><a href="table_styling" class="nav-link">Leave Requests</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Carryover Requests</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Leave Transactions</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Leave Types</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Leave Policies</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Settings & Configurations</a></li>
+                    </ul>
+                </li>
+                <!-- /Recruitment & Hiring Management -->
+
+                <!-- Talent Management -->
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">
+                        <i class="ph-graduation-cap"></i>
+                        <span>Talent Management</span>
+                    </a>
+                    <ul class="nav-group-sub collapse">
+                        <li class="nav-item"><a href="table_basic" class="nav-link">Overview</a></li>
+                        <li class="nav-item"><a href="table_sizing" class="nav-link">Leave Balances</a></li>
+                        <li class="nav-item"><a href="table_borders" class="nav-link">Leave Schedules</a></li>
+                        <li class="nav-item"><a href="table_styling" class="nav-link">Leave Requests</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Carryover Requests</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Leave Transactions</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Leave Types</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Leave Policies</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Settings & Configurations</a></li>
+                    </ul>
+                </li>
+                <!-- /Talent Management -->
+
+                <!-- Benefits Management -->
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">
+                        <i class="ph-gift"></i>
+                        <span>Benefits Management</span>
+                    </a>
+                    <ul class="nav-group-sub collapse">
+                        <li class="nav-item"><a href="table_basic" class="nav-link">Overview</a></li>
+                        <li class="nav-item"><a href="table_sizing" class="nav-link">Leave Balances</a></li>
+                        <li class="nav-item"><a href="table_borders" class="nav-link">Leave Schedules</a></li>
+                        <li class="nav-item"><a href="table_styling" class="nav-link">Leave Requests</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Carryover Requests</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Leave Transactions</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Leave Types</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Leave Policies</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Settings & Configurations</a></li>
+                    </ul>
+                </li>
+                <!-- /Benefits Management -->
+
+                <!-- Staff Advance Management -->
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">
+                        <i class="ph-calendar"></i>
+                        <span>Staff Advance Management</span>
+                    </a>
+                    <ul class="nav-group-sub collapse">
+                        <li class="nav-item"><a href="table_basic" class="nav-link">Overview</a></li>
+                        <li class="nav-item"><a href="table_sizing" class="nav-link">Leave Balances</a></li>
+                        <li class="nav-item"><a href="table_borders" class="nav-link">Leave Schedules</a></li>
+                        <li class="nav-item"><a href="table_styling" class="nav-link">Leave Requests</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Carryover Requests</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Leave Transactions</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Leave Types</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Leave Policies</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Settings & Configurations</a></li>
+                    </ul>
+                </li>
+                <!-- /Staff Advance Management -->
+
+                <!-- Learning & Professional Development Management -->
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">
+                        <i class="ph-graduation-cap"></i>
+                        <span>Learning & Professional Development</span>
+                    </a>
+                    <ul class="nav-group-sub collapse">
+                        <li class="nav-item"><a href="table_basic" class="nav-link">Overview</a></li>
+                        <li class="nav-item"><a href="table_sizing" class="nav-link">Leave Balances</a></li>
+                        <li class="nav-item"><a href="table_borders" class="nav-link">Leave Schedules</a></li>
+                        <li class="nav-item"><a href="table_styling" class="nav-link">Leave Requests</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Carryover Requests</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Leave Transactions</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Leave Types</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Leave Policies</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Settings & Configurations</a></li>
+                    </ul>
+                </li>
+                <!-- /Learning & Professional Development Management -->
+
+                <!-- HR Documents Repository -->
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">
+                        <i class="ph-folder"></i>
+                        <span>HR Documents Repository</span>
+                    </a>
+                    <ul class="nav-group-sub collapse">
+                        <li class="nav-item"><a href="table_basic" class="nav-link">Overview</a></li>
+                        <li class="nav-item"><a href="table_sizing" class="nav-link">Leave Balances</a></li>
+                        <li class="nav-item"><a href="table_borders" class="nav-link">Leave Schedules</a></li>
+                        <li class="nav-item"><a href="table_styling" class="nav-link">Leave Requests</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Carryover Requests</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Leave Transactions</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Leave Types</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Leave Policies</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Settings & Configurations</a></li>
+                    </ul>
+                </li>
+                <!-- /HR Documents Repository -->
+
+                <!-- Personnel Contracts Management -->
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">
+                        <i class="ph-calendar"></i>
+                        <span>Personnel Contracts Management</span>
+                    </a>
+                    <ul class="nav-group-sub collapse">
+                        <li class="nav-item"><a href="table_basic" class="nav-link">Overview</a></li>
+                        <li class="nav-item"><a href="table_sizing" class="nav-link">Leave Balances</a></li>
+                        <li class="nav-item"><a href="table_borders" class="nav-link">Leave Schedules</a></li>
+                        <li class="nav-item"><a href="table_styling" class="nav-link">Leave Requests</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Carryover Requests</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Leave Transactions</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Leave Types</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Leave Policies</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Settings & Configurations</a></li>
+                    </ul>
+                </li>
+                <!-- /Personnel Contracts Management -->
+
+                <!-- Reports & Analytics Management -->
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">
+                        <i class="ph-chart-line-up"></i>
+                        <span>Reports & Analytics</span>
+                    </a>
+                    <ul class="nav-group-sub collapse">
+                        <li class="nav-item"><a href="table_basic" class="nav-link">Overview</a></li>
+                        <li class="nav-item"><a href="table_sizing" class="nav-link">Leave Balances</a></li>
+                        <li class="nav-item"><a href="table_borders" class="nav-link">Leave Schedules</a></li>
+                        <li class="nav-item"><a href="table_styling" class="nav-link">Leave Requests</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Carryover Requests</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Leave Transactions</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Leave Types</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Leave Policies</a></li>
+                        <li class="nav-item"><a href="table_elements" class="nav-link">Settings & Configurations</a></li>
+                    </ul>
+                </li>
+                <!-- /Reports & Analytics Management -->
+
+                <!-- Settings -->
+                <li class="nav-item-header">
+                    <div class="text-uppercase fs-sm lh-sm opacity-50 sidebar-resize-hide">Settings</div>
+                    <i class="ph-dots-three sidebar-resize-show"></i>
+                </li>
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">
+                        <i class="ph-gear-six"></i>
+                        <span>General Settings</span>
+                    </a>
+                    <ul class="nav-group-sub collapse">
+                        <li class="nav-item"><a href="form_autocomplete" class="nav-link">Autocomplete</a></li>
+                        <li class="nav-item"><a href="form_checkboxes_radios" class="nav-link">Checkboxes &amp; radios</a></li>
+                        <li class="nav-item"><a href="form_dual_listboxes" class="nav-link">Dual Listboxes</a></li>
+                        <li class="nav-item"><a href="form_controls_extended" class="nav-link">Extended controls</a></li>
+                    </ul>
+                </li>
+                <!-- /Settings -->
 
 
 
