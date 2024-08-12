@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Department;
 use App\Http\Requests\StoreDepartmentRequest;
 use App\Http\Requests\UpdateDepartmentRequest;
+use App\Models\Directorate;
+use App\Models\Position;
 
 class DepartmentController extends Controller
 {
@@ -14,6 +16,12 @@ class DepartmentController extends Controller
     public function index()
     {
         //
+        return view('admin.orgn.departments.index', [
+            'departments' => Department::with('position')->orderBy('id', 'desc')->get(),
+            'title' => 'Departments',
+            'subtitle' => 'Departments List'
+        ]);
+
     }
 
     /**
@@ -22,6 +30,12 @@ class DepartmentController extends Controller
     public function create()
     {
         //
+        return view('admin.orgn.departments.create', [
+            'title' => 'Departments List',
+            'subtitle' => 'Create Department',
+            'positions' => Position::all(),
+            'directorates' => Directorate::all(),
+        ]);
     }
 
     /**

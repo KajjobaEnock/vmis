@@ -29,6 +29,8 @@ Route::group(['middleware' => 'auth'], function () {
         //Organisation Management Routes
         Route::prefix('organisation-management')->group(function(){
             Route::resource('directorates', 'App\Http\Controllers\DirectorateController');
+            Route::resource('departments', 'App\Http\Controllers\DepartmentController');
+            Route::resource('positions', 'App\Http\Controllers\PositionController');
         });
     });
 });

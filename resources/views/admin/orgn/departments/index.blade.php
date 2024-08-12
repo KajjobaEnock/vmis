@@ -13,7 +13,7 @@
         <div class="card-header d-flex align-items-center py-0">
             <h6 class="py-3 mb-0">{{$subtitle}}</h6>
             <div class="ms-auto my-auto">
-                <a href="{{ route('directorates.create') }}" class="btn btn-primary"> <i class="ph-plus-circle"></i> New Directorate</a>
+                <a href="{{ route('departments.create') }}" class="btn btn-primary"> <i class="ph-plus-circle"></i> New Department</a>
             </div>
         </div>
 
@@ -29,7 +29,7 @@
             </div>
         @endif
 
-        @if($directorates->count() > 0)
+        @if($departments->count() > 0)
             @php
                 $i = 1;
             @endphp
@@ -37,6 +37,7 @@
             <table class="table datatable-button-html5-columns">
                 <thead>
                     <tr>
+                        <th>Department Name</th>
                         <th>Directorate Name</th>
                         <th>Head</th>
                         <th>Status</th>
