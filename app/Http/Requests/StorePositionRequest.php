@@ -29,7 +29,7 @@ class StorePositionRequest extends FormRequest
             'category1' => ['required', 'integer'],
             'category2' => ['required', 'integer'],
             'details' => ['nullable', 'string', 'max:255'],
-            'supervisor' => ['required', 'integer'],
+            'supervisor' => ['nullable', 'integer'],
         ];
     }
 }
