@@ -11,7 +11,7 @@ class UpdateCategorizationOneRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,9 @@ class UpdateCategorizationOneRequest extends FormRequest
     {
         return [
             //
+            'name' => 'required',
+            'status' => 'required',
+            'details' => 'nullable|max:500'
         ];
     }
 }

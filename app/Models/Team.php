@@ -6,21 +6,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use OwenIt\Auditing\Contracts\Auditable;
 
-class Band extends Model implements Auditable
+class Team extends Model implements Auditable
 {
     use HasFactory, \OwenIt\Auditing\Auditable;
-
-    protected $table = 'bands';
+    
+    protected $table = 'teams';
 
     protected $fillable = [
         'name',
-        'grade',
         'details',
         'status',
     ];
 
     /**
-     * Get the Positions for the Band.
+     * Get the Positions for the Team.
      */
     public function positions()
     {

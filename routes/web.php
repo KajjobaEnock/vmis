@@ -31,6 +31,11 @@ Route::group(['middleware' => 'auth'], function () {
             Route::resource('directorates', 'App\Http\Controllers\DirectorateController');
             Route::resource('departments', 'App\Http\Controllers\DepartmentController');
             Route::resource('positions', 'App\Http\Controllers\PositionController');
+            Route::resource('teams', 'App\Http\Controllers\TeamController');
+            Route::resource('locations', 'App\Http\Controllers\LocationController');
+            Route::resource('bands', 'App\Http\Controllers\BandController');
+            Route::resource('categorization-ones', 'App\Http\Controllers\CategorizationOneController');
+            Route::resource('categorization-twos', 'App\Http\Controllers\CategorizationTwoController');
         });
     });
 });

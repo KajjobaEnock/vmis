@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateCategorizationTwoRequest extends FormRequest
+class UpdateLocationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,7 @@ class UpdateCategorizationTwoRequest extends FormRequest
             //
             'name' => 'required',
             'status' => 'required',
-            'details' => 'nullable|max:500'
+            'details' => 'max:500'
         ];
     }
 }

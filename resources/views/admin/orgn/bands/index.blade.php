@@ -13,7 +13,7 @@
         <div class="card-header d-flex align-items-center py-0">
             <h6 class="py-3 mb-0">{{$subtitle}}</h6>
             <div class="ms-auto my-auto">
-                <a href="{{ route('directorates.create') }}" class="btn btn-primary"> <i class="ph-plus-circle"></i> New Directorate</a>
+                <a href="{{ route('bands.create') }}" class="btn btn-primary"> <i class="ph-plus-circle me-2"></i> New Band</a>
             </div>
         </div>
 
@@ -21,7 +21,7 @@
             <div class="card-body">
                 <div class="alert alert-success alert-icon-start alert-dismissible fade show">
                     <span class="alert-icon bg-success text-white">
-                        <i class="ph-x-circle"></i>
+                        <i class="ph-check-circle"></i>
                     </span>
                      {!! session('success') !!}
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
@@ -29,7 +29,7 @@
             </div>
         @endif
 
-        @if($directorates->count() > 0)
+        @if($bands->count() > 0)
             @php
                 $i = 1;
             @endphp
@@ -37,19 +37,26 @@
             <table class="table datatable-button-html5-columns">
                 <thead>
                     <tr>
-                        <th>Directorate Name</th>
-                        <th>Head</th>
+                        <th>No</th>
+                        <th>Band Name</th>
+                        <th>Grade</th>
                         <th>Status</th>
                         <th>Details</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($bands as $band)
                     <tr>
-                        <td>Marth</td>
-                        <td><a href="#">Enright</a></td>
-                        <td>Traffic Court Referee</td>
-                        <td> </td>
+                        <td>{{ $i++ }}</td>
+                        <td><a href="{{route('bands.show', $band->id)}}">{{ $band->name}}</a></td>
+                        <td>{{ $band->grade ?? '' }}</td>
+                        <td>
+                            @if($band->status ==0) <span class="badge bg-warning">Inactive</span>
+                                @elseif($band->status ==1) <span class="badge bg-success">Active</span>
+                            @endif
+                        </td>
+                        <td>{!! $band->details !!}</td>
                         <td class="text-center">
                             <div class="d-inline-flex">
                                 <div class="dropdown">
@@ -58,23 +65,25 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-end">
-                                        <a href="#" class="dropdown-item">
+                                        <a href="{{route('bands.show', $band->id)}}" class="dropdown-item">
                                             <i class="ph-file-pdf me-2"></i>
-                                            Export to .pdf
+                                            View Band
                                         </a>
-                                        <a href="#" class="dropdown-item">
+                                        <a href="{{route('bands.edit', $band->id)}}" class="dropdown-item">
                                             <i class="ph-file-csv me-2"></i>
-                                            Export to .csv
+                                            Edit Band
                                         </a>
                                         <a href="#" class="dropdown-item">
                                             <i class="ph-file-doc me-2"></i>
-                                            Export to .doc
+                                            Delete Band
                                         </a>
                                     </div>
                                 </div>
                             </div>
                         </td>
                     </tr>
+
+                    @endforeach
                 </tbody>
             </table>
         @else

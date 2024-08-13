@@ -6,24 +6,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use OwenIt\Auditing\Contracts\Auditable;
 
-class Band extends Model implements Auditable
+class Location extends Model implements Auditable
 {
     use HasFactory, \OwenIt\Auditing\Auditable;
 
-    protected $table = 'bands';
+    protected $table = 'locations';
 
     protected $fillable = [
         'name',
-        'grade',
-        'details',
         'status',
+        'details',
     ];
 
-    /**
-     * Get the Positions for the Band.
-     */
-    public function positions()
-    {
-        return $this->hasMany(Position::class);
+    //Creating Relationship between the Location and Employee Model
+    public function employee(){
+        return $this->hasMany(User::class);
     }
 }

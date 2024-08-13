@@ -14,6 +14,11 @@ class BandController extends Controller
     public function index()
     {
         //
+        return view('admin.orgn.bands.index', [
+            'bands' => Band::all(),
+            'title' => 'Bands',
+            'subtitle' => 'Bands List'
+        ]);
     }
 
     /**
@@ -22,6 +27,10 @@ class BandController extends Controller
     public function create()
     {
         //
+        return view('admin.orgn.bands.create', [
+            'title' => 'Bands List',
+            'subtitle' => 'Create New Band'
+        ]);
     }
 
     /**
@@ -30,6 +39,15 @@ class BandController extends Controller
     public function store(StoreBandRequest $request)
     {
         //
+        Band::create([
+            'name' => $request->name,
+            'grade' => $request->grade,
+            'details' => $request->details,
+            'status' => 1,
+        ]);
+
+        return redirect()->route('bands.index')
+            ->with('success','Band Saved successfully.');
     }
 
     /**
@@ -38,6 +56,9 @@ class BandController extends Controller
     public function show(Band $band)
     {
         //
+        return view('admin.orgn.bands.show', [
+            'band' => $band
+        ]);
     }
 
     /**
@@ -46,6 +67,11 @@ class BandController extends Controller
     public function edit(Band $band)
     {
         //
+        return view('admin.orgn.bands.edit', [
+            'band' => $band,
+            'title' => 'Bands List',
+            'subtitle' => 'Update Band'
+        ]);
     }
 
     /**
@@ -54,6 +80,15 @@ class BandController extends Controller
     public function update(UpdateBandRequest $request, Band $band)
     {
         //
+        $band->update([
+            'name' => $request->name,
+            'grade' => $request->grade,
+            'details' => $request->details,
+            'status' => $request->status,
+        ]);
+
+        return redirect()->route('bands.index')
+            ->with('success','Band successfully Updated.');
     }
 
     /**
@@ -62,5 +97,10 @@ class BandController extends Controller
     public function destroy(Band $band)
     {
         //
+        $band->delete();
+
+        return redirect()->route('bands.index')
+            ->with('success','Band successfully Deleted.');
+
     }
 }

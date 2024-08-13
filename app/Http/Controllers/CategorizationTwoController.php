@@ -14,6 +14,11 @@ class CategorizationTwoController extends Controller
     public function index()
     {
         //
+        return view('admin.orgn.cat2.index', [
+            'categories' => CategorizationTwo::all(),
+            'title' => 'Categorization Two',
+            'subtitle' => 'Categorization Twos List'
+        ]);
     }
 
     /**
@@ -22,6 +27,10 @@ class CategorizationTwoController extends Controller
     public function create()
     {
         //
+        return view('admin.orgn.cat2.create', [
+            'title' => 'Categorizations List',
+            'subtitle' => 'Create New Categorization'
+        ]);
     }
 
     /**
@@ -30,6 +39,14 @@ class CategorizationTwoController extends Controller
     public function store(StoreCategorizationTwoRequest $request)
     {
         //
+        CategorizationTwo::create([
+            'name' => $request->name,
+            'details' => $request->details,
+            'status' => 1,
+        ]);
+
+        return redirect()->route('categorization-twos.index')
+            ->with('success','Categorization Saved successfully.');
     }
 
     /**
@@ -38,6 +55,9 @@ class CategorizationTwoController extends Controller
     public function show(CategorizationTwo $categorizationTwo)
     {
         //
+        return view('admin.orgn.cat2.show', [
+            'category' => $categorizationTwo
+        ]);
     }
 
     /**
@@ -46,6 +66,11 @@ class CategorizationTwoController extends Controller
     public function edit(CategorizationTwo $categorizationTwo)
     {
         //
+        return view('admin.orgn.cat2.edit', [
+            'category' => $categorizationTwo,
+            'title' => 'Categorization Twos',
+            'subtitle' => 'Update Categorization Two'
+        ]);
     }
 
     /**
@@ -54,6 +79,15 @@ class CategorizationTwoController extends Controller
     public function update(UpdateCategorizationTwoRequest $request, CategorizationTwo $categorizationTwo)
     {
         //
+        $categorizationTwo->update([
+            'name' => $request->name,
+            'grade' => $request->grade,
+            'details' => $request->details,
+            'status' => $request->status,
+        ]);
+
+        return redirect()->route('categorization-twos.index')
+            ->with('success','Categorization successfully Updated.');
     }
 
     /**
@@ -62,5 +96,9 @@ class CategorizationTwoController extends Controller
     public function destroy(CategorizationTwo $categorizationTwo)
     {
         //
+        $categorizationTwo->delete();
+
+        return redirect()->route('categorization-twos.index')
+            ->with('success','Categorization successfully Updated.');
     }
 }

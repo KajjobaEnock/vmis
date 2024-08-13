@@ -21,7 +21,7 @@
             <div class="card-body">
                 <div class="alert alert-success alert-icon-start alert-dismissible fade show">
                     <span class="alert-icon bg-success text-white">
-                        <i class="ph-x-circle"></i>
+                        <i class="ph-check-circle"></i>
                     </span>
                      {!! session('flash_message') !!}
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
