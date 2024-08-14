@@ -11,7 +11,7 @@ class UpdateDirectorateRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,10 @@ class UpdateDirectorateRequest extends FormRequest
     {
         return [
             //
+            'name' => 'required',
+            'head' => 'required',
+            'status' => 'required',
+            'details' => 'nullable|max:100'
         ];
     }
 }

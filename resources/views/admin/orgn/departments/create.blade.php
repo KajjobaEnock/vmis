@@ -35,7 +35,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                     </div>
                 @endif
-                <form action="{{route('directorates.store')}}" method="post">
+                <form action="{{route('departments.store')}}" method="post">
                     @csrf
                         <div class="form-group">
                             <div class="row">

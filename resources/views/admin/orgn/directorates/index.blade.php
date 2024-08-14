@@ -13,7 +13,7 @@
         <div class="card-header d-flex align-items-center py-0">
             <h6 class="py-3 mb-0">{{$subtitle}}</h6>
             <div class="ms-auto my-auto">
-                <a href="{{ route('directorates.create') }}" class="btn btn-primary"> <i class="ph-plus-circle"></i> New Directorate</a>
+                <a href="{{ route('directorates.create') }}" class="btn btn-primary"> <i class="ph-plus-circle me-1"></i> New Directorate</a>
             </div>
         </div>
 
@@ -37,19 +37,26 @@
             <table class="table datatable-button-html5-columns">
                 <thead>
                     <tr>
+                        <th>No.</th>
                         <th>Directorate Name</th>
-                        <th>Head</th>
+                        <th>Head/Director</th>
                         <th>Status</th>
                         <th>Details</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($directorates as $directorate)
                     <tr>
-                        <td>Marth</td>
-                        <td><a href="#">Enright</a></td>
-                        <td>Traffic Court Referee</td>
-                        <td> </td>
+                        <td>{{ $i++ }}</td>
+                        <td><a href="{{route('directorates.show', $directorate->id)}}">{{ $directorate->name}}</a></td>
+                        <td>{{ $directorate->position->name ?? '' }}</td>
+                        <td>
+                            @if($directorate->status ==0) <span class="badge bg-warning">Inactive</span>
+                                @elseif($directorate->status ==1) <span class="badge bg-success">Active</span>
+                            @endif
+                        </td>
+                        <td>{!! $directorate->details !!}</td>
                         <td class="text-center">
                             <div class="d-inline-flex">
                                 <div class="dropdown">
@@ -58,23 +65,25 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-end">
-                                        <a href="#" class="dropdown-item">
+                                        <a href="{{route('directorates.show', $directorate->id)}}" class="dropdown-item">
                                             <i class="ph-file-pdf me-2"></i>
-                                            Export to .pdf
+                                            View Directorate
                                         </a>
-                                        <a href="#" class="dropdown-item">
+                                        <a href="{{route('directorates.edit', $directorate->id)}}" class="dropdown-item">
                                             <i class="ph-file-csv me-2"></i>
-                                            Export to .csv
+                                            Edit Directorate
                                         </a>
                                         <a href="#" class="dropdown-item">
                                             <i class="ph-file-doc me-2"></i>
-                                            Export to .doc
+                                            Delete Directorate
                                         </a>
                                     </div>
                                 </div>
                             </div>
                         </td>
                     </tr>
+
+                    @endforeach
                 </tbody>
             </table>
         @else

@@ -62,7 +62,7 @@ class PositionController extends Controller
         ]);
 
         return redirect()->route('positions.index')
-            ->with('flash_message','Position created successfully.');
+            ->with('success','Position created successfully.');
     }
 
     /**
@@ -85,7 +85,9 @@ class PositionController extends Controller
             'bands' => Band::all(),
             'teams' => Team::all(),
             'categories1' => CategorizationOne::all(),
-            'categories2' => CategorizationTwo::all()
+            'categories2' => CategorizationTwo::all(),
+            'title' => 'Positions List',
+            'subtitle' => 'Update Position'
         ]);
     }
 

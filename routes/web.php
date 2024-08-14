@@ -36,6 +36,12 @@ Route::group(['middleware' => 'auth'], function () {
             Route::resource('bands', 'App\Http\Controllers\BandController');
             Route::resource('categorization-ones', 'App\Http\Controllers\CategorizationOneController');
             Route::resource('categorization-twos', 'App\Http\Controllers\CategorizationTwoController');
+
+        });
+
+        //Employee Management Routes
+        Route::prefix('employees')->group(function(){
+            Route::resource('employee-types', 'App\Http\Controllers\EmployeeTypeController');
         });
     });
 });

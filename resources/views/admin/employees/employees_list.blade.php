@@ -13,7 +13,7 @@
         <div class="card-header d-flex align-items-center py-0">
             <h6 class="py-3 mb-0">{{$subtitle}}</h6>
             <div class="ms-auto my-auto">
-                <a href="{{ route('departments.create') }}" class="btn btn-primary"> <i class="ph-plus-circle me-1"></i> New Department</a>
+                <a href="{{ route('bands.create') }}" class="btn btn-primary"> <i class="ph-plus-circle me-2"></i> New Band</a>
             </div>
         </div>
 
@@ -29,7 +29,7 @@
             </div>
         @endif
 
-        @if($departments->count() > 0)
+        @if($bands->count() > 0)
             @php
                 $i = 1;
             @endphp
@@ -37,28 +37,26 @@
             <table class="table datatable-button-html5-columns">
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>Department Name</th>
-                        <th>Directorate Name</th>
-                        <th>Head</th>
+                        <th>No</th>
+                        <th>Band Name</th>
+                        <th>Grade</th>
                         <th>Status</th>
                         <th>Details</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($departments as $department)
+                    @foreach ($bands as $band)
                     <tr>
                         <td>{{ $i++ }}</td>
-                        <td><a href="{{route('departments.show', $department->id)}}">{{ $department->name}}</a></td>
-                        <td>{{ $department->directorate->name ?? '' }}</td>
-                        <td>{{ $department->position->name ?? '' }}</td>
+                        <td><a href="{{route('bands.show', $band->id)}}">{{ $band->name}}</a></td>
+                        <td>{{ $band->grade ?? '' }}</td>
                         <td>
-                            @if($department->status ==0) <span class="badge bg-warning">Inactive</span>
-                                @elseif($department->status ==1) <span class="badge bg-success">Active</span>
+                            @if($band->status ==0) <span class="badge bg-warning">Inactive</span>
+                                @elseif($band->status ==1) <span class="badge bg-success">Active</span>
                             @endif
                         </td>
-                        <td>{!! $department->details !!}</td>
+                        <td>{!! $band->details !!}</td>
                         <td class="text-center">
                             <div class="d-inline-flex">
                                 <div class="dropdown">
@@ -67,17 +65,17 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-end">
-                                        <a href="{{route('departments.show', $department->id)}}" class="dropdown-item">
+                                        <a href="{{route('bands.show', $band->id)}}" class="dropdown-item">
                                             <i class="ph-file-pdf me-2"></i>
-                                            View Department
+                                            View Band
                                         </a>
-                                        <a href="{{route('departments.edit', $department->id)}}" class="dropdown-item">
+                                        <a href="{{route('bands.edit', $band->id)}}" class="dropdown-item">
                                             <i class="ph-file-csv me-2"></i>
-                                            Edit Department
+                                            Edit Band
                                         </a>
                                         <a href="#" class="dropdown-item">
                                             <i class="ph-file-doc me-2"></i>
-                                            Delete Department
+                                            Delete Band
                                         </a>
                                     </div>
                                 </div>

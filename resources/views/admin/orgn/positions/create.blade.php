@@ -114,7 +114,7 @@
 
                                 <div class="col-lg-6">
                                     <div class="mb-3">
-                                        <label for="loan_type" class="col-form-label text-md-right">{{ __('Team:') }} <span style="color: red;">*</span></label>
+                                        <label for="team" class="col-form-label text-md-right">{{ __('Team:') }} <span style="color: red;">*</span></label>
                                         <select class="form-control select {{$errors->has('team') ? 'is-invalid': ''}} required" id="team" name="team" data-placeholder="Select Team">
                                             @foreach ($teams  as $team)
                                                 <option></option>

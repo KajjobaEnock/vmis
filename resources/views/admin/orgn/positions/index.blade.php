@@ -54,7 +54,7 @@
                     @foreach ($positions as $position)
                         <tr>
                             <td>{{ $i++ }}</td>
-                            <td><a href="{{route('positions.show', $position->id)}}" target="_blank">{{ $position->name}}</a></td>
+                            <td><a href="{{route('positions.show', $position->id)}}">{{ $position->name}}</a></td>
                             <td>{{ $position->categorizationOne->name ?? '' }}</td>
                             <td>{{ $position->categorizationTwo->name ?? '' }}</td>
                             <td>{{ $position->band->name ?? '' }}</td>
@@ -62,8 +62,8 @@
                             <td>{{ $position->team->name ?? '' }}</td>
                             <td>{{ $position->supervisor()->first()->name ?? '' }}</td>
                             <td>
-                                @if($position->status ==0) <span class="badge badge-warning">Inactive</span>
-                                @elseif($position->status ==1) <span class="badge badge-success">Active</span>
+                                @if($position->status ==0) <span class="badge bg-warning">Inactive</span>
+                                @elseif($position->status ==1) <span class="badge bg-success">Active</span>
                                 @endif
                             </td>
                             <td>{!! $position->details !!}</td>

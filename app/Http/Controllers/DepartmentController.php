@@ -17,7 +17,7 @@ class DepartmentController extends Controller
     {
         //
         return view('admin.orgn.departments.index', [
-            'departments' => Department::with('position')->orderBy('id', 'desc')->get(),
+            'departments' => Department::with('position', 'directorate')->orderBy('id', 'desc')->get(),
             'title' => 'Departments',
             'subtitle' => 'Departments List'
         ]);
@@ -44,6 +44,16 @@ class DepartmentController extends Controller
     public function store(StoreDepartmentRequest $request)
     {
         //
+        Department::create([
+            'name' => $request->name,
+            'position_id' => $request->head,
+            'directorate_id' => $request->directorate,
+            'details' => $request->details,
+            'status' => 1,
+        ]);
+
+        return redirect()->route('departments.index')
+            ->with('success','Department created successfully.');
     }
 
     /**
@@ -60,6 +70,13 @@ class DepartmentController extends Controller
     public function edit(Department $department)
     {
         //
+        return view('admin.orgn.departments.edit', [
+            'department' => $department,
+            'positions' => Position::WHERE('status', 1)->get(),
+            'directorates' => Directorate::get()->WHERE('status', 1),
+            'title' => 'Departments List',
+            'subtitle' => 'Update Department',
+         ]);
     }
 
     /**
@@ -68,6 +85,16 @@ class DepartmentController extends Controller
     public function update(UpdateDepartmentRequest $request, Department $department)
     {
         //
+        $department->update([
+            'name' => $request->name,
+            'directorate_id' => $request->directorate,
+            'position_id' => $request->head,
+            'details' => $request->details,
+            'status' => $request->status,
+        ]);
+
+        return redirect()->route('departments.index')
+            ->with('success','Department Updated successfully.');
     }
 
     /**

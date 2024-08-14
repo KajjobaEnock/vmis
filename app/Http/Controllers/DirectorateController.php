@@ -49,7 +49,7 @@ class DirectorateController extends Controller
         ]);
 
         return redirect()->route('directorates.index')
-            ->with('flash_message','Directorate created successfully.');
+            ->with('success','Directorate created successfully.');
     }
 
     /**
@@ -60,6 +60,8 @@ class DirectorateController extends Controller
         //
         return view('admin.directorates.show', [
             'directorate' => $directorate,
+            'title' => 'Directorates List',
+            'subtitle' => 'Create Directorate',
         ]);
     }
 
@@ -69,9 +71,11 @@ class DirectorateController extends Controller
     public function edit(Directorate $directorate)
     {
         //
-        return view('admin.directorates.edit', [
+        return view('admin.orgn.directorates.edit', [
             'directorate' => $directorate,
-            'positions' => Position::all(),
+            'positions' => Position::where('status', 1)->get(),
+            'title' => 'Directorates List',
+            'subtitle' => 'Update Directorate',
         ]);
     }
 
@@ -89,7 +93,7 @@ class DirectorateController extends Controller
         ]);
 
         return redirect()->route('directorates.index')
-            ->with('flash_message','Directorate successfully Updated.');
+            ->with('success','Directorate successfully Updated.');
     }
 
     /**

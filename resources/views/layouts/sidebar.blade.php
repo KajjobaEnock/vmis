@@ -48,7 +48,7 @@
                         <li class="nav-item"><a href="{{ route('departments.index') }}" class="nav-link">Departments</a></li>
                         <li class="nav-item"><a href="{{ route('positions.index') }}" class="nav-link">Positions</a></li>
                         <li class="nav-item"><a href="{{ route('teams.index') }}" class="nav-link">Teams</a></li>
-                        <li class="nav-item"><a href="{{ route('bands.index') }}" class="nav-link">Band</a></li>
+                        <li class="nav-item"><a href="{{ route('bands.index') }}" class="nav-link">Bands</a></li>
                         <li class="nav-item"><a href="{{ route('locations.index') }}" class="nav-link">Duty Stations</a></li>
                         <li class="nav-item"><a href="table_elements" class="nav-link">Projects & CC Codes</a></li>
                         <li class="nav-item"><a href="{{ route('categorization-ones.index') }}" class="nav-link">Categorization One</a></li>
@@ -66,9 +66,7 @@
                     <ul class="nav-group-sub collapse">
                         <li class="nav-item"><a href="table_basic" class="nav-link">Employees List</a></li>
                         <li class="nav-item"><a href="table_sizing" class="nav-link">Promotions & Transfers</a></li>
-                        <li class="nav-item"><a href="table_borders" class="nav-link">Employee Types & Roles</a></li>
-                        <li class="nav-item"><a href="table_styling" class="nav-link">Positions</a></li>
-                        <li class="nav-item"><a href="table_elements" class="nav-link">Bands</a></li>
+                        <li class="nav-item"><a href="{{ route('employee-types.index') }}" class="nav-link">Employee Types & Roles</a></li>
                     </ul>
                 </li>
                 <!-- /Employee Management -->
