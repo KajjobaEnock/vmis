@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LimitlessController;
 use Illuminate\Support\Facades\Auth;
@@ -42,6 +43,9 @@ Route::group(['middleware' => 'auth'], function () {
         //Employee Management Routes
         Route::prefix('employees')->group(function(){
             Route::resource('employee-types', 'App\Http\Controllers\EmployeeTypeController');
+            Route::controller(EmployeeController::class)->group(function(){
+                Route::get('/', 'index')->name('employees.index');
+            });
         });
     });
 });

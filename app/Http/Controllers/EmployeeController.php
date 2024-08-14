@@ -14,8 +14,30 @@ class EmployeeController extends Controller
     {
         //
         return view('admin.employees.employees_list',[
-            'users' => User::active()->with('employeeType', 'position.band', 'department.directorate', 'line_manager', 'location')->get()
+            'users' => User::active()->with('employeeType', 'position.band', 'department.directorate', 'line_manager', 'location')->get(),
+            'title' => 'Employees',
+            'subtitle' => 'Employees List'
         ]);
+    }
+
+
+    //Display a list of active Employees
+    public function getActive(){
+        return view('admin.employees.employees_list',[
+            'users' => User::active()->with('employeeType', 'position.band', 'department.directorate', 'line_manager', 'location')->where('status', 1)->get(),
+            'title' => 'Employees',
+            'subtitle' => 'Employees List'
+        ]);
+    }
+
+    //Display a list of Deactivated Employees
+    public function getInactive(){
+        return view('admin.employees.employees_list',[
+            'users' => User::active()->with('employeeType', 'position.band', 'department.directorate', 'line_manager', 'location')->where('status', 0)->get(),
+            'title' => 'Employees',
+            'subtitle' => 'Employees List'
+        ]);
+
     }
 
     /**

@@ -64,7 +64,7 @@
                         <span>Employee Management</span>
                     </a>
                     <ul class="nav-group-sub collapse">
-                        <li class="nav-item"><a href="table_basic" class="nav-link">Employees List</a></li>
+                        <li class="nav-item"><a href="{{ route('employees.index') }}" class="nav-link">Employees List</a></li>
                         <li class="nav-item"><a href="table_sizing" class="nav-link">Promotions & Transfers</a></li>
                         <li class="nav-item"><a href="{{ route('employee-types.index') }}" class="nav-link">Employee Types & Roles</a></li>
                     </ul>

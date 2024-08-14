@@ -11,10 +11,33 @@
     <!-- Column selectors -->
     <div class="card">
         <div class="card-header d-flex align-items-center py-0">
-            <h6 class="py-3 mb-0">{{$subtitle}}</h6>
+            <h5 class="py-3 mb-0">{{$subtitle}}</h5>
             <div class="ms-auto my-auto">
-                <a href="{{ route('bands.create') }}" class="btn btn-primary"> <i class="ph-plus-circle me-2"></i> New Band</a>
+                <a href="{{ route('bands.create') }}" class="btn btn-primary"> <i class="ph-plus-circle me-1"></i> New Employee</a>
             </div>
+        </div>
+
+        <div class="nav-tabs-responsive">
+            <ul class="nav nav-tabs nav-tabs-underline flex-nowrap mb-0">
+                <li class="nav-item">
+                    <a href="#course-overview" class="nav-link active" data-bs-toggle="tab">
+                        <i class="ph-list me-2"></i>
+                        All Employees
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#course-attendees" class="nav-link" data-bs-toggle="tab">
+                        <i class="ph-users-three me-2"></i>
+                        Active Employees
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#course-schedule" class="nav-link" data-bs-toggle="tab">
+                        <i class="ph-calendar me-2"></i>
+                        Deactivated Employees
+                    </a>
+                </li>
+            </ul>
         </div>
 
         @if(Session::has('success'))
@@ -29,7 +52,7 @@
             </div>
         @endif
 
-        @if($bands->count() > 0)
+        @if($users->count() > 0)
             @php
                 $i = 1;
             @endphp
@@ -37,26 +60,43 @@
             <table class="table datatable-button-html5-columns">
                 <thead>
                     <tr>
-                        <th>No</th>
-                        <th>Band Name</th>
+                        <th>No.</th>
+                        <th>Full Name</th>
+                        <th>Employee Number</th>
+                        <th>Email Address</th>
+                        <th>Employee Contract Type</th>
+                        <th>Position</th>
+                        <th>Band</th>
                         <th>Grade</th>
+                        <th>Department</th>
+                        <th>Directorate</th>
+                        <th>Joining Date</th>
                         <th>Status</th>
-                        <th>Details</th>
+                        <th>Supervisor</th>
+                        <th>Office Location</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($bands as $band)
+                    @foreach ($users as $user)
                     <tr>
                         <td>{{ $i++ }}</td>
-                        <td><a href="{{route('bands.show', $band->id)}}">{{ $band->name}}</a></td>
-                        <td>{{ $band->grade ?? '' }}</td>
-                        <td>
-                            @if($band->status ==0) <span class="badge bg-warning">Inactive</span>
-                                @elseif($band->status ==1) <span class="badge bg-success">Active</span>
+                        <td><a href="{{route('bands.show', $user->id)}}">{{ $user->full_name }}</a></td>
+                        <td>{{ $user->employee_number ?? '' }}</td>
+                        <td>{{ $user->email ?? '' }}</td>
+                        <td>{{ $user->employeeType->name ?? '' }}</td>
+                        <td>{{ $user->position->name ?? '' }}</td>
+                        <td>{{ $user->position->band->name ?? '' }}</td>
+                        <td>{{ $user->position->band->grade ?? '' }}</td>
+                        <td>{{$user->department->name ?? ''}}</td>
+                        <td>{{$user->department->directorate->name ?? ''}}</td>
+                        <td>{{ $user->joining_date ?? '' }}</td>
+                        <td>@if($user->status == 0) <span class="badge badge-warning">Inactive</span>
+                            @elseif($user->status ==1) <span class="badge badge-success">Active</span>
                             @endif
                         </td>
-                        <td>{!! $band->details !!}</td>
+                        <td>{{ $user->line_manager->full_name ?? '' }}</td>
+                        <td>{{ $user->location->name ?? '' }}</td>
                         <td class="text-center">
                             <div class="d-inline-flex">
                                 <div class="dropdown">
@@ -65,17 +105,17 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-end">
-                                        <a href="{{route('bands.show', $band->id)}}" class="dropdown-item">
+                                        <a href="{{route('bands.show', $user->id)}}" class="dropdown-item">
                                             <i class="ph-file-pdf me-2"></i>
-                                            View Band
+                                            View Employee
                                         </a>
-                                        <a href="{{route('bands.edit', $band->id)}}" class="dropdown-item">
+                                        <a href="{{route('bands.edit', $user->id)}}" class="dropdown-item">
                                             <i class="ph-file-csv me-2"></i>
-                                            Edit Band
+                                            Edit Employee
                                         </a>
                                         <a href="#" class="dropdown-item">
                                             <i class="ph-file-doc me-2"></i>
-                                            Delete Band
+                                            Delete Employee
                                         </a>
                                     </div>
                                 </div>

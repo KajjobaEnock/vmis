@@ -68,7 +68,9 @@ class EmployeeTypeController extends Controller
     {
         //
         return view('admin.employees.employee_types.edit', [
-            'employee_type' => $employeeType
+            'employee_type' => $employeeType,
+            'title' => 'Employee Types List',
+            'subtitle' => 'Update Employee Type'
         ]);
     }
 

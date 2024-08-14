@@ -11,7 +11,7 @@ class UpdateEmployeeTypeRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,8 @@ class UpdateEmployeeTypeRequest extends FormRequest
     {
         return [
             //
+            'name' => 'required',
+            'details' => 'nullable|max:100'
         ];
     }
 }
