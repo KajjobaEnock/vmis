@@ -13,7 +13,7 @@
         <div class="card-header d-flex align-items-center py-0">
             <h5 class="py-3 mb-0">{{$subtitle}}</h5>
             <div class="ms-auto my-auto">
-                <a href="{{ route('bands.create') }}" class="btn btn-primary"> <i class="ph-plus-circle me-1"></i> New Employee</a>
+                <a href="{{ route('employees.create') }}" class="btn btn-primary"> <i class="ph-plus-circle me-1"></i> New Employee</a>
             </div>
         </div>
 
@@ -81,7 +81,7 @@
                     @foreach ($users as $user)
                     <tr>
                         <td>{{ $i++ }}</td>
-                        <td><a href="{{route('bands.show', $user->id)}}">{{ $user->full_name }}</a></td>
+                        <td><a href="{{route('employees.show', $user->id)}}">{{ $user->full_name }}</a></td>
                         <td>{{ $user->employee_number ?? '' }}</td>
                         <td>{{ $user->email ?? '' }}</td>
                         <td>{{ $user->employeeType->name ?? '' }}</td>
@@ -105,11 +105,11 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-end">
-                                        <a href="{{route('bands.show', $user->id)}}" class="dropdown-item">
+                                        <a href="{{route('employees.show', $user->id)}}" class="dropdown-item">
                                             <i class="ph-file-pdf me-2"></i>
                                             View Employee
                                         </a>
-                                        <a href="{{route('bands.edit', $user->id)}}" class="dropdown-item">
+                                        <a href="{{route('employees.edit', $user->id)}}" class="dropdown-item">
                                             <i class="ph-file-csv me-2"></i>
                                             Edit Employee
                                         </a>
