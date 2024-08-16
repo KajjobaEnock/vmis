@@ -6,14 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use OwenIt\Auditing\Contracts\Auditable;
 
-class MaritalStatus extends Model implements Auditable
+class Skill extends Model implements Auditable
 {
     use HasFactory, \OwenIt\Auditing\Auditable;
 
-    protected $table = 'marital_statuses';
+    protected $table = 'skills';
 
     protected $fillable = [
         'name',
         'details',
+        'created_by',
     ];
 }

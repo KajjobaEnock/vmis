@@ -2,8 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
+use App\Models\EmployeeType;
+use App\Models\Language;
+use App\Models\Location;
+use App\Models\MaritalStatus;
+use App\Models\Position;
+use App\Models\Skill;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EmployeeController extends Controller
 {
@@ -259,7 +267,7 @@ class EmployeeController extends Controller
         //
         return view('admin.employees.forms.edit.edit', [
             'employee' => User::findOrFail($user),
-            'levels' => EmployeeLevel::select('id', 'name')->get(),
+            // 'levels' => EmployeeLevel::select('id', 'name')->get(),
             'line_managers' => User::select('id', 'first_name', 'middle_name', 'last_name')->get(),
             'types' => EmployeeType::select(['id', 'name'])->get(),
             'languages' => Language::select(['id', 'name'])->get(),

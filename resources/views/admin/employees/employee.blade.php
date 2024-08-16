@@ -351,11 +351,41 @@
                     </div>
 
                     <div class="card-body">
+                        @if($user->current_village !== null)
 
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <table class="table">
+                                                <thead>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>{{ __('Village/ LC1:') }}</td>
+                                                        <td><span class="font-weight-semibold text-right">{{ $user->current_village ?? '' }}</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>{{ __('District:') }}</td>
+                                                        <td><span class="text-right">{{ $user->current_district ?? '' }}</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>{{ __('Town:') }}</td>
+                                                        <td><span class="text-right">{{ $user->current_town ?? '' }}</span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                            @else
+                                <div class="alert alert-warning alert-icon-start alert-dismissible fade show">
+                                    <span class="alert-icon bg-warning text-white">
+                                        <i class="ph-warning-circle"></i>
+                                    </span>
+                                    <span class="fw-semibold">Employee has no current residential address details added yet!</span>
+                                </div>
+                            @endif
                     </div>
                 </div>
                 <!-- /Current Address -->
-
 
                 <!-- Permanent Address -->
                 <div class="card">
@@ -364,6 +394,40 @@
                     </div>
 
                     <div class="card-body">
+                        @if($user->permanent_village !== null)
+
+                                <div class="col-lg-12">
+                                    <table class="table">
+                                        <thead>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>{{ __('Village/ LC1:') }}</td>
+                                                <td><span class="font-weight-semibold text-right">{{ $user->permanent_village ?? '' }}</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>{{ __('County:') }}</td>
+                                                <td><span class="text-right">{{ $user->permanent_county ?? '' }}</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>{{ __('Subcounty:') }}</td>
+                                                <td><span class="text-right">{{ $user->permanent_subcounty ?? '' }}</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>{{ __('District:') }}</td>
+                                                <td><span class="text-right">{{ $user->permanent_district ?? '' }}</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            @else
+                                <div class="alert alert-warning alert-icon-start alert-dismissible fade show">
+                                    <span class="alert-icon bg-warning text-white">
+                                        <i class="ph-warning-circle"></i>
+                                    </span>
+                                    <span class="fw-semibold">Employee has no Permanent Home Address details added yet!</span>
+                                </div>
+                            @endif
                     </div>
                 </div>
                 <!-- /Permanent Address -->
@@ -372,103 +436,90 @@
 
             <div class="tab-pane fade" id="family">
 
-                <!-- Available hours -->
+                <!-- Family Information -->
                 <div class="card">
-                    <div class="card-header">
-                        <h5 class="mb-0">Available hours</h5>
+                    <div class="card-header bg-info">
+                        <h5 class="mb-0 text-white"><i class="ph-users-three me-1"></i>Family Information</h5>
                     </div>
 
                     <div class="card-body">
 
                     </div>
                 </div>
-                <!-- /available hours -->
-
-
-                <!-- Schedule -->
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="mb-0">My schedule</h5>
-                    </div>
-
-                    <div class="card-body">
-                        <div class="my-schedule"></div>
-                    </div>
-                </div>
-                <!-- /schedule -->
+                <!-- /Family Information -->
 
             </div>
 
             <div class="tab-pane fade" id="job">
 
-                <!-- Available hours -->
+                <!-- Job History -->
                 <div class="card">
-                    <div class="card-header">
-                        <h5 class="mb-0">Available hours</h5>
+                    <div class="card-header bg-info">
+                        <h5 class="mb-0 text-white"><i class="ph-briefcase me-1"></i> Job History</h5>
                     </div>
 
                     <div class="card-body">
 
                     </div>
                 </div>
-                <!-- /available hours -->
+                <!-- /Job History -->
 
             </div>
 
             <div class="tab-pane fade" id="salary">
 
-                <!-- Available hours -->
+                <!-- Salary History -->
                 <div class="card">
-                    <div class="card-header">
-                        <h5 class="mb-0">Available hours</h5>
+                    <div class="card-header bg-info">
+                        <h5 class="mb-0 text-white"><i class=""></i>Salary History</h5>
                     </div>
 
                     <div class="card-body">
 
                     </div>
                 </div>
-                <!-- /available hours -->
+                <!-- /Salary History -->
 
             </div>
 
             <div class="tab-pane fade" id="benefits">
 
-                <!-- Available hours -->
+                <!-- Benefits Information -->
                 <div class="card">
-                    <div class="card-header">
-                        <h5 class="mb-0">Available hours</h5>
+                    <div class="card-header bg-info">
+                        <h5 class="mb-0 text-white"><i class="ph-gift me-1"></i>Benefits Information</h5>
                     </div>
 
                     <div class="card-body">
 
                     </div>
                 </div>
-                <!-- /available hours -->
+                <!-- /Benefits Information -->
 
             </div>
 
             <div class="tab-pane fade" id="leave">
 
-                <!-- Available hours -->
+                <!-- leave Information -->
                 <div class="card">
-                    <div class="card-header">
-                        <h5 class="mb-0">Available hours</h5>
+                    <div class="card-header bg-info">
+                        <h5 class="mb-0 text-white"><i class="ph-calendar me-1"></i>Leave Information</h5>
                     </div>
 
                     <div class="card-body">
 
                     </div>
                 </div>
-                <!-- /available hours -->
+                <!-- /Leave Information -->
 
             </div>
 
             <div class="tab-pane fade" id="loans">
 
-                <!-- Available hours -->
+                <!-- Loans & Advances -->
                 <div class="card">
-                    <div class="card-header">
-                        <h5 class="mb-0">Available hours</h5>
+                    <div class="card-header bg-info">
+                        <h5 class="mb-0 text-white"><i class="ph me-1"></i>Loans & Advances</h5>
                     </div>
 
                     <div class="card-body">
@@ -481,17 +532,17 @@
 
             <div class="tab-pane fade" id="learning">
 
-                <!-- Available hours -->
+                <!-- Leaning & Development -->
                 <div class="card">
-                    <div class="card-header">
-                        <h5 class="mb-0">Available hours</h5>
+                    <div class="card-header bg-info">
+                        <h5 class="mb-0 text-white"><i class="ph-graduation-cap me-1"></i>Leaning & Development</h5>
                     </div>
 
                     <div class="card-body">
 
                     </div>
                 </div>
-                <!-- /available hours -->
+                <!-- /Leaning & Development -->
 
             </div>
 
