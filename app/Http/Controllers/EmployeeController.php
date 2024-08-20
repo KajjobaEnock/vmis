@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\updateEmployeePersonalRequest;
 use App\Models\Department;
 use App\Models\EmployeeType;
 use App\Models\Language;
@@ -312,7 +313,6 @@ class EmployeeController extends Controller
                 'skills' => $request->skills,
                 'personal_status' => 1,
                 'modified_by' => Auth::id(),
-
             ]);
 
             return redirect()->route('edit.employment', $employee->id)
@@ -322,6 +322,14 @@ class EmployeeController extends Controller
         else{
             abort('401');
         }
+    }
+
+    //Function to save first name
+    public function saveFirstName(Request $request){
+        $employee = User::findOrFail($request->employee_id);
+        dd($employee);
+        $employee->first_name = $request->first_name;
+        $employee->save();
     }
 
     /**

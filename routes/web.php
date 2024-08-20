@@ -67,6 +67,7 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::get('/{id}/preview-biodat', 'previewBiodata')->name('employees.preview_biodata');
                 Route::get('/{id}/show', 'show')->name('employees.show');
                 Route::get('/{id}/edit', 'edit')->name('employees.edit');
+                Route::post('update-first-name', 'saveFirstName')->name('update-first-name');
                 Route::post('/{id}/update', 'update')->name('employees.update');
             });
         });
