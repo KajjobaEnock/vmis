@@ -5,6 +5,10 @@
 @slot('subtitle') Wizard @endslot
 @endcomponent
 
+<script type="text/javascript">
+    var token = '{{ csrf_token() }}';
+</script>
+
 <script src="{{ URL::asset('assets/custom/employee_profile.js') }}"></script>
 
 <!-- Content area -->
@@ -94,7 +98,7 @@
                             <div class="form-group row mb-3">
                                 <label for="first_name" class="col-lg-3 col-form-label">{{ __('First Name:') }} <span style="color: red;">*</span></label>
                                 <div class="col-lg-9">
-                                    <input id="first_name_{{ $employee->id }}" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ $employee->first_name ?? '' }}" autocomplete="first_name" autofocus placeholder="First Name" onblur="save_first_name('first_name_{{ $employee->id }}', {{ $employee->id }})">
+                                    <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ $employee->first_name ?? '' }}" autocomplete="first_name" placeholder="First Name" onblur="saveFirstName('first_name', {{ $employee->id }})">
                                     @error('first_name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -106,7 +110,7 @@
                             <div class="form-group row mb-3">
                                 <label for="middle_name" class="col-lg-3 col-form-label">{{ __('Middle Name:') }}</label>
                                 <div class="col-lg-9">
-                                    <input id="middle_name" type="text" class="form-control @error('middle_name') is-invalid @enderror" name="middle_name" value="{{ $employee->middle_name ?? '' }}" autocomplete="middle_name" autofocus placeholder="Middle Name">
+                                    <input id="middle_name" type="text" class="form-control @error('middle_name') is-invalid @enderror" name="middle_name" value="{{ $employee->middle_name ?? '' }}" autocomplete="middle_name" autofocus placeholder="Middle Name" onblur="saveMiddleName('middle_name', {{ $employee->id }})">
                                     @error('middle_name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -118,7 +122,7 @@
                             <div class="form-group row mb-3">
                                 <label for="dob" class="col-lg-3 col-form-label">{{ __('Date of Birth:') }} <span style="color: red;">*</span></label>
                                 <div class="col-lg-9">
-                                    <input id="dob" type="date" class="form-control @error('dob') is-invalid @enderror" name="dob" value="{{ $employee->dob ?? '' }}" required placeholder="Date of Birth">
+                                    <input id="dob" type="date" class="form-control @error('dob') is-invalid @enderror" name="dob" value="{{ $employee->dob ?? '' }}" required placeholder="Date of Birth" onblur="saveDob('dob', {{ $employee->id }})">
                                     @error('dob')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -130,7 +134,7 @@
                             <div class="form-group row mb-3">
                                 <label for="marital_status" class="col-lg-3 col-form-label">{{ __('Marital Status:') }} <span style="color: red;">*</span></label>
                                 <div class="col-lg-9">
-                                    <select class="form-control select {{$errors->has('marital_status') ? 'is-invalid': ''}} required" id="marital_status" name="marital_status" data-placeholder="Select Marital Status">
+                                    <select class="form-control select {{$errors->has('marital_status') ? 'is-invalid': ''}} required" id="marital_status" name="marital_status" data-placeholder="Select Marital Status" onblur="saveMaritalStatus('marital_status', {{ $employee->id }})">
                                         @foreach ($marital_statuses as $marital)
                                             <option></option>
                                             <option value="{{ $marital->id }}" @if($employee->marital_status_id == $marital->id) selected='selected' @endif >{{ $marital->name }}</option>
@@ -151,7 +155,7 @@
                             <div class="form-group row mb-3">
                                 <label for="last_name" class="col-lg-3 col-form-label">{{ __('Last Name:') }} <span style="color: red;">*</span></label>
                                 <div class="col-lg-9">
-                                    <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ $employee->last_name ?? '' }}" placeholder="Last Name">
+                                    <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ $employee->last_name ?? '' }}" placeholder="Last Name" onblur="saveLastName('last_name', {{ $employee->id }})">
                                     @error('last_name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -163,7 +167,7 @@
                             <div class="form-group row mb-3">
                                 <label for="gender" class="col-lg-3 col-form-label">{{ __('Gender:') }} <span style="color: red;">*</span></label>
                                 <div class="col-lg-9">
-                                    {{ Form::select('gender', [''=>'', 'Male' => 'Male', 'Female' => 'Female'], null, ['class' => 'form-control select required', 'data-placeholder'=>'Select Gender']) }}
+                                    {{ Form::select('gender', [''=>'', 'Male' => 'Male', 'Female' => 'Female'], null, ['class' => 'form-control select required', 'data-placeholder'=>'Select Gender', 'onblur' => 'saveGender("nationality", $employee->id)']) }}
                                     @error('gender')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -175,7 +179,7 @@
                             <div class="form-group row mb-3">
                                 <label for="nationality" class="col-lg-3 col-form-label">{{ __('Nationality:') }} <span style="color: red;">*</span></label>
                                 <div class="col-lg-9">
-                                    <input id="nationality" type="text" class="form-control @error('nationality') is-invalid @enderror" name="nationality" value="{{ $employee->nationality ?? '' }}" placeholder="Nationality">
+                                    <input id="nationality" type="text" class="form-control @error('nationality') is-invalid @enderror" name="nationality" value="{{ $employee->nationality ?? '' }}" placeholder="Nationality" onblur="saveNationality('nationality', {{ $employee->id }})">
                                     @error('nationality')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -214,7 +218,7 @@
                             <div class="form-group row mb-3">
                                 <label for="office_number" class="col-lg-3 col-form-label">{{ __('Office Number:') }}</label>
                                 <div class="col-lg-9">
-                                    <input id="office_number" type="text" class="form-control @error('office_number') is-invalid @enderror" name="office_number" value="{{ $employee->office_number ?? '' }}" placeholder="Office Phone Number">
+                                    <input id="office_number" type="text" class="form-control @error('office_number') is-invalid @enderror" name="office_number" value="{{ $employee->office_number ?? '' }}" placeholder="Office Phone Number" onblur="saveOfficeNumber('office_number', {{ $employee->id }})">
                                     @error('office_number')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -226,7 +230,7 @@
                             <div class="form-group row mb-3">
                                 <label for="email" class="col-lg-3 col-form-label">{{ __('Work Email:') }} <span style="color: red;">*</span></label>
                                 <div class="col-lg-9">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $employee->email ?? '' }}" placeholder="Work Email Address">
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $employee->email ?? '' }}" placeholder="Work Email Address" onblur="saveEmail('email', {{ $employee->id }})">
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -242,7 +246,7 @@
                             <div class="form-group row mb-3">
                                 <label for="mobile_number" class="col-lg-3 col-form-label">{{ __('Mobile Number:') }} <span style="color: red;">*</span></label>
                                 <div class="col-lg-9">
-                                    <input id="mobile_number" type="text" class="form-control @error('mobile_number') is-invalid @enderror" name="mobile_number" value="{{ $employee->mobile_number ?? '' }}" placeholder="Mobile Phone Number">
+                                    <input id="mobile_number" type="text" class="form-control @error('mobile_number') is-invalid @enderror" name="mobile_number" value="{{ $employee->mobile_number ?? '' }}" placeholder="Mobile Phone Number" onblur="saveMobileNumber('mobile_number', {{ $employee->id }})">
                                     @error('mobile_number')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -254,7 +258,7 @@
                             <div class="form-group row mb-3">
                                 <label for="personal_email" class="col-lg-3 col-form-label">{{ __('Personal Email:') }} </label>
                                 <div class="col-lg-9">
-                                    <input id="personal_email" type="email" class="form-control @error('personal_email') is-invalid @enderror" name="personal_email" value="{{ $employee->personal_email ?? '' }}" placeholder="Personal Email Address">
+                                    <input id="personal_email" type="email" class="form-control @error('personal_email') is-invalid @enderror" name="personal_email" value="{{ $employee->personal_email ?? '' }}" placeholder="Personal Email Address" onblur="savePersonalEmail('personal_email', {{ $employee->id }})">
                                     @error('personal_email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -274,7 +278,7 @@
                             <div class="form-group row mb-3">
                                 <label for="nin" class="col-lg-3 col-form-label">{{ __('National ID Number:') }} <span style="color: red;">*</span></label>
                                 <div class="col-lg-9">
-                                    <input id="nin" type="text" class="form-control @error('nin') is-invalid @enderror" name="nin" value="{{ $employee->nin ?? '' }}" placeholder="National ID Number">
+                                    <input id="nin" type="text" class="form-control @error('nin') is-invalid @enderror" name="nin" value="{{ $employee->nin ?? '' }}" placeholder="National ID Number" onblur="saveNin('nin', {{ $employee->id }})">
                                     @error('nin')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -286,7 +290,7 @@
                             <div class="form-group row mb-3">
                                 <label for="nssf_number" class="col-lg-3 col-form-label">{{ __('NSSF Number:') }} <span style="color: red;">*</span></label>
                                 <div class="col-lg-9">
-                                    <input id="nssf_number" type="text" class="form-control @error('nssf_number') is-invalid @enderror" name="nssf_number" value="{{ $employee->nssf_number ?? '' }}" placeholder="NSSF Number">
+                                    <input id="nssf_number" type="text" class="form-control @error('nssf_number') is-invalid @enderror" name="nssf_number" value="{{ $employee->nssf_number ?? '' }}" placeholder="NSSF Number" onblur="saveNssfNumber('nssf_number', {{ $employee->id }})">
                                     @error('nssf_number')
                                     <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -298,7 +302,7 @@
                             <div class="form-group row mb-3">
                                 <label for="insurance_number" class="col-lg-3 col-form-label">{{ __('Insurance Number:') }} </label>
                                 <div class="col-lg-9">
-                                    <input id="insurance_number" type="text" class="form-control @error('insurance_number') is-invalid @enderror" name="insurance_number" value="{{ $employee->insurance_number ?? '' }}" placeholder="Insurance Number">
+                                    <input id="insurance_number" type="text" class="form-control @error('insurance_number') is-invalid @enderror" name="insurance_number" value="{{ $employee->insurance_number ?? '' }}" placeholder="Insurance Number" onblur="saveInsuranceNumber('insurance_number', {{ $employee->id }})">
                                     @error('insurance_number')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -314,7 +318,7 @@
                             <div class="form-group row mb-3">
                                 <label for="tin" class="col-lg-3 col-form-label">{{ __('TIN Number:') }} <span style="color: red;">*</span></label>
                                 <div class="col-lg-9">
-                                    <input id="tin" type="text" class="form-control @error('tin') is-invalid @enderror" name="tin" value="{{ $employee->tin ?? '' }}" placeholder="TIN Number">
+                                    <input id="tin" type="text" class="form-control @error('tin') is-invalid @enderror" name="tin" value="{{ $employee->tin ?? '' }}" placeholder="TIN Number" onblur="saveTinNumber('tin', {{ $employee->id }})">
                                     @error('tin')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -326,7 +330,7 @@
                             <div class="form-group row mb-3">
                                 <label for="passport_number" class="col-lg-3 col-form-label">{{ __('Passport Number:') }} </label>
                                 <div class="col-lg-9">
-                                    <input id="passport_number" type="text" class="form-control @error('passport_number') is-invalid @enderror" name="passport_number" value="{{ $employee->passport_number ?? '' }}" placeholder="Passport Number">
+                                    <input id="passport_number" type="text" class="form-control @error('passport_number') is-invalid @enderror" name="passport_number" value="{{ $employee->passport_number ?? '' }}" placeholder="Passport Number" onblur="savePassportNumber('passport_number', {{ $employee->id }})">
                                     @error('passport_number')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -346,7 +350,7 @@
                             <div class="form-group row mb-3">
                                 <label for="sills" class="col-lg-3 col-form-label">{{ __('Skills:') }} </label>
                                 <div class="col-lg-9">
-                                    <select multiple="multiple" name="skills" data-placeholder="Select Skills..." class="form-control form-control-lg select" data-container-css-class="select-lg" data-fouc>
+                                    <select multiple="multiple" name="skills" data-placeholder="Select Skills..." class="form-control form-control-lg select" data-container-css-class="select-lg" data-fouc onblur="saveSkill('skills', {{ $employee->id }})">
                                         @foreach ($skills as $skill)
                                             <option></option>
                                             <option value="{{ $skill->id }}" @if($employee->skills == $skill->id) selected='selected' @endif >{{ $skill->name }}</option>
@@ -366,7 +370,7 @@
                             <div class="form-group row mb-3">
                                 <label for="languages" class="col-lg-3 col-form-label">{{ __('Languages:') }} </label>
                                 <div class="col-lg-9">
-                                    <select multiple="multiple" name="languages" data-placeholder="Select Languages..." class="form-control form-control-lg select" data-container-css-class="select-lg" data-fouc>
+                                    <select multiple="multiple" name="languages" data-placeholder="Select Languages..." class="form-control form-control-lg select" data-container-css-class="select-lg" data-fouc onblur="saveLanguage('languages', {{ $employee->id }})">
                                         @foreach ($languages as $language)
                                             <option></option>
                                             <option value="{{ $language->id }}" @if($employee->languages == $language->id) selected='selected' @endif >{{ $language->name }}</option>

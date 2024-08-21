@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\EmployeeProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LimitlessController;
 use Illuminate\Support\Facades\Auth;
@@ -67,8 +68,27 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::get('/{id}/preview-biodat', 'previewBiodata')->name('employees.preview_biodata');
                 Route::get('/{id}/show', 'show')->name('employees.show');
                 Route::get('/{id}/edit', 'edit')->name('employees.edit');
-                Route::post('update-first-name', 'saveFirstName')->name('update-first-name');
                 Route::post('/{id}/update', 'update')->name('employees.update');
+            });
+
+            Route::controller(EmployeeProfileController::class)->group(function(){
+                Route::post('update-employee-first-name', 'saveFirstName')->name('save_employee_first_name');
+                Route::post('update-employee-last-name', 'saveLastName')->name('save_employee_last_name');
+                Route::post('update-employee-middle-name', 'saveMiddleName')->name('save_employee_middle_name');
+                Route::post('update-employee-gender', 'saveGender')->name('save_employee_gender');
+                Route::post('update-employee-marital-status', 'saveMaritalStatus')->name('save_employee_marital_status');
+                Route::post('update-employee-dob', 'saveDob')->name('save_employee_dob');
+                Route::post('update-employee-nationality', 'saveNationality')->name('save_employee_nationality');
+                Route::post('update-employee-office-number', 'saveOfficeNumber')->name('save_employee_office_number');
+                Route::post('update-employee-email', 'saveEmail')->name('save_employee_email');
+                Route::post('update-employee-mobile-number', 'saveMobileNumber')->name('save_employee_mobile_number');
+                Route::post('update-employee-personal-email', 'savePersonalEmail')->name('save_employee_personal_email');
+                Route::post('update-employee-nin', 'saveNin')->name('save_employee_nin');
+                Route::post('update-employee-nssf-number', 'saveNssfNumber')->name('save_employee_nssf_number');
+                Route::post('update-employee-insurance-number', 'saveInsuranceNumber')->name('save_employee_insurance_number');
+                Route::post('update-employee-tin', 'saveTinNumber')->name('save_employee_tin');
+                Route::post('update-employee-passport-number', 'savePassportNumber')->name('save_employee_passport_number');
+
             });
         });
     });
