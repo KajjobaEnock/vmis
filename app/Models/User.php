@@ -140,6 +140,14 @@ class User extends Authenticatable implements Auditable, MustVerifyEmail
         $query->where('status', 1);
     }
 
+    /**
+     * scope a query to include only Inactive users
+     */
+    public function scopeInactive(Builder $query):void
+    {
+        $query->where('status', 0);
+    }
+
     //Get Active Users
     public static function getActiveStaff(){
         $actives = User::where('status', 1)->get();

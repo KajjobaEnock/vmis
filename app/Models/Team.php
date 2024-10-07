@@ -9,7 +9,7 @@ use OwenIt\Auditing\Contracts\Auditable;
 class Team extends Model implements Auditable
 {
     use HasFactory, \OwenIt\Auditing\Auditable;
-    
+
     protected $table = 'teams';
 
     protected $fillable = [

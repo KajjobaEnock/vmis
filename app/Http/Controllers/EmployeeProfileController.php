@@ -21,6 +21,10 @@ class EmployeeProfileController extends Controller
         $employee->save();
     }
 
+    public function getName(){
+        
+    }
+
     //Save Middle Name
     public function saveMiddleName(Request $request){
         $employee = User::findOrFail($request->employeeId);

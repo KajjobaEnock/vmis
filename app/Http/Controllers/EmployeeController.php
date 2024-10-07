@@ -41,7 +41,7 @@ class EmployeeController extends Controller
     // Display a list of Deactivated Employees
     public function getInactive(){
         return view('admin.employees.employees_list',[
-            'users' => User::active()->with('employeeType', 'position.band', 'department.directorate', 'line_manager', 'location')->where('status', 0)->get(),
+            'users' => User::inactive()->with('employeeType', 'position.band', 'department.directorate', 'line_manager', 'location')->where('status', 0)->get(),
             'title' => 'Employees',
             'subtitle' => 'Employees List'
         ]);
