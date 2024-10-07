@@ -29,7 +29,6 @@ class EmployeeController extends Controller
         ]);
     }
 
-
     //Display a list of active Employees
     public function getActive(){
         return view('admin.employees.employees_list',[
@@ -39,7 +38,7 @@ class EmployeeController extends Controller
         ]);
     }
 
-    //Display a list of Deactivated Employees
+    // Display a list of Deactivated Employees
     public function getInactive(){
         return view('admin.employees.employees_list',[
             'users' => User::active()->with('employeeType', 'position.band', 'department.directorate', 'line_manager', 'location')->where('status', 0)->get(),
