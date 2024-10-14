@@ -53,7 +53,7 @@ class EmployeeProfileController extends Controller
         $employee->save();
     }
 
-    //Save Marital Status
+    //Save Nationality
     public function saveNationality(Request $request){
         $employee = User::findOrFail($request->employeeId);
         $employee->nationality = $request->nationality;

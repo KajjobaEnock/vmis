@@ -88,8 +88,9 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::post('update-employee-insurance-number', 'saveInsuranceNumber')->name('save_employee_insurance_number');
                 Route::post('update-employee-tin', 'saveTinNumber')->name('save_employee_tin');
                 Route::post('update-employee-passport-number', 'savePassportNumber')->name('save_employee_passport_number');
-
             });
+
+            
         });
     });
 });
