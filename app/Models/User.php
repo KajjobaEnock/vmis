@@ -27,76 +27,15 @@ class User extends Authenticatable implements Auditable, MustVerifyEmail
         'first_name',
         'middle_name',
         'last_name',
-        'dob',
         'gender',
         'avatar',
-        'employee_number',
-        'nin',
-        'line_manager_id',
-        'status',
-        'employee_type_id',
-        'tin',
-        'nssf_number',
-        'joining_date',
-        'contract_end_date',
-        'office_number',
-        'mobile_number',
-        'amount',
-        'languages',
-        'skills',
         'email',
         'username',
-        'position_id',
-        'department_id',
-        'project_id',
-        'location_id',
-        'marital_status_id',
-        'nationality',
+        'status',
+        'mobile_number',
         'created_by',
         'modified_by',
         'password',
-        'disability',
-        'diability_details',
-        'personal_email',
-        'passport_number',
-        'insurance_number',
-        'illness',
-        'illness_details',
-        'profile_status',
-        'profile_date',
-        'personal_status',
-        'address_status',
-        'family_status',
-        'education_status',
-        'employment_status',
-        'others_status',
-        'appraisal_type',
-        'current_village',
-        'current_town',
-        'current_district',
-        'permanent_village',
-        'permanent_subcounty',
-        'permanent_county',
-        'permanent_district',
-        'spouse_name',
-        'spouse_phone',
-        'spouse_attachment',
-        'spouse_details',
-        'next_name',
-        'next_phone',
-        'next_address',
-        'next_relationship',
-        'next_details',
-        'father_name',
-        'father_status',
-        'father_phone',
-        'father_address',
-        'father_details',
-        'mother_name',
-        'mother_status',
-        'mother_phone',
-        'mother_address',
-        'mother_details',
     ];
 
     /**
@@ -124,14 +63,6 @@ class User extends Authenticatable implements Auditable, MustVerifyEmail
         return "{$this->first_name} {$this->middle_name} {$this->last_name}";
     }
 
-    //Check if the user is activated
-    public function isActivated(){
-        if($this->status == 1){
-            return true;
-        }
-        //return $this->status == 1;
-    }
-
     /**
      * scope a query to include only active users
      */
@@ -146,46 +77,6 @@ class User extends Authenticatable implements Auditable, MustVerifyEmail
     public function scopeInactive(Builder $query):void
     {
         $query->where('status', 0);
-    }
-
-    //Get Active Users
-    public static function getActiveStaff(){
-        $actives = User::where('status', 1)->get();
-        return $actives;
-    }
-
-    //Get Active Users
-    public static function getInactiveStaff(){
-        $in_actives = User::where('status', 0)->get();
-        return $in_actives;
-    }
-
-    //Return Period Worked in years
-    public function getWorkDurationAttribute(){
-        $joiningDate = Carbon::parse($this->joining_date);
-        $duration = today()->floatDiffInYears($joiningDate);
-        return number_format($duration, 1);
-    }
-
-    //Return Employee Birthdays in the current Month
-    public static function currentMonthBirthday()
-    {
-        $birthdays = User::select('first_name', 'middle_name', 'last_name', 'dob', 'profile_picture')
-            ->whereMonth("dob = ?", [date('m')])
-            ->where('status', 1)
-            ->orderBy('dob', 'asc')->get();
-        return $birthdays;
-    }
-
-    //Return Employees whose Birthday is today
-    public static function getTodayBirthdays()
-    {
-        $birthdays = User::select('first_name', 'middle_name', 'last_name', 'dob', 'profile_picture')
-            ->whereDay('dob', [date('d')])
-            ->whereMonth('dob', [date('m')])
-            ->where('status', 1)
-            ->orderBy('dob', 'asc')->get();
-        return $birthdays;
     }
 
     /**
@@ -235,25 +126,5 @@ class User extends Authenticatable implements Auditable, MustVerifyEmail
     //Creating Relationship between employee and Location model
     public function location(){
         return $this->belongsTo(Location::class);
-    }
-
-    //Creating Relationship between employee and Position model
-    public function position(){
-        return $this->belongsTo(Position::class);
-    }
-
-    //Creating Relationship between employee and Project model
-    public function project(){
-        return $this->belongsTo(Project::class);
-    }
-
-    //Relationship between Employee and Employee Type Model
-    public function employeeType(){
-        return $this->belongsTo(EmployeeType::class);
-    }
-
-    //Relationship between Employee and Marital Status Model
-    public function maritalStatus(){
-        return $this->belongsTo(MaritalStatus::class);
     }
 }

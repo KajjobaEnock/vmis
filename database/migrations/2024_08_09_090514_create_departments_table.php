@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('details')->nullable();
-            $table->unsignedInteger('position_id')->nullable();
-            $table->unsignedInteger('directorate_id')->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
         });
