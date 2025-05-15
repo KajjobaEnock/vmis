@@ -14,7 +14,7 @@ class ParishController extends Controller
     public function index()
     {
         //
-        return view('settings.localization.parishes',[
+        return view('settings.localization.parishes.parishes',[
             'parishes' => Parish::with('sub_county')->get(),
             'title' => 'Localization Settings',
             'subtitle' => 'Subcounties List',

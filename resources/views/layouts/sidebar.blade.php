@@ -84,9 +84,7 @@
                     </a>
                     <ul class="nav-group-sub collapse">
                         <li class="nav-item"><a href="{{ route('regions.index') }}" class="nav-link">Localization</a></li>
-                        <li class="nav-item"><a href="form_checkboxes_radios" class="nav-link">Checkboxes &amp; radios</a></li>
-                        <li class="nav-item"><a href="form_dual_listboxes" class="nav-link">Dual Listboxes</a></li>
-                        <li class="nav-item"><a href="form_controls_extended" class="nav-link">Extended controls</a></li>
+                        <li class="nav-item"><a href="{{ route('ranks.index) }}" class="nav-link">Army &amp; Ranks</a></li>
                     </ul>
                 </li>
                 <li class="nav-item nav-item-submenu">
@@ -96,7 +94,7 @@
                     </a>
                     <ul class="nav-group-sub collapse">
                         <li class="nav-item"><a href="{{ route('users.index') }}" class="nav-link">Users List</a></li>
-                        <li class="nav-item"><a href="form_checkboxes_radios" class="nav-link">ROles &amp; Permissions List</a></li>
+                        <li class="nav-item"><a href="" class="nav-link">Army &amp; Permissions List</a></li>
                     </ul>
                 </li>
                 <!-- /Settings -->

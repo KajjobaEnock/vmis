@@ -14,7 +14,7 @@ class RegionController extends Controller
     public function index()
     {
         //
-        return view('settings.localization.regions',[
+        return view('settings.localization.regions.regions',[
             'regions' => Region::all(),
             'title' => 'Localization Settings',
             'subtitle' => 'Regons List',

@@ -23,7 +23,7 @@
             </div>
         @endif
 
-        @if($initiatives->count() > 0)
+        @if($subcounties->count() > 0)
             @php
                 $i = 1;
             @endphp
@@ -32,21 +32,29 @@
                 <thead>
                     <tr>
                         <th>No.</th>
-                        <th>Strategic Initiative</th>
-                        <th>Strategic Objective</th>
-                        <th>Strategic Pillar</th>
+                        <th>Subcounty Name</th>
+                        <th>County</th>
+                        <th>District</th>
+                        <th>Region</th>
+                        <th>Status</th>
                         <th>Details</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($initiatives as $initiative)
+                    @foreach ($subcounties as $subcounty)
                     <tr>
                         <td>{{ $i++ }}</td>
-                        <td><a href="{{route('strategic-initiatives.show', $initiative->id)}}">{{ $initiative->name }}</a></td>
-                        <td>{{ $initiative->strategicObjective->name ?? '' }}</td>
-                        <td>{{ $initiative->strategicObjective->StrategicPillar->name ?? '' }}</td>
-                        <td>{{ $initiative->details ?? '' }}</td>
+                        <td><a href="{{route('subcounties.show', $subcounty->id)}}">{{ $subcounty->name }}</a></td>
+                        <td>{{ $subcounty->county->name ?? '' }}</td>
+                        <td>{{ $subcounty->county->district->name ?? '' }}</td>
+                        <td>{{ $subcounty->county->district->region->name ?? '' }}</td>
+                        <td>
+                            @if($subcounty->status == 0) <span class="badge bg-warning">Inactive</span>
+                                @elseif($subcounty->status == 1) <span class="badge bg-success">Active</span>
+                            @endif
+                        </td>
+                        <td>{{ $subcounty->details ?? '' }}</td>
                         <td class="text-center">
                             <div class="d-inline-flex">
                                 <div class="dropdown">
@@ -55,17 +63,17 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-end">
-                                        <a href="{{route('strategic-initiatives.show', $initiative->id)}}" class="dropdown-item">
+                                        <a href="{{route('subcounties.show', $subcounty->id)}}" class="dropdown-item">
                                             <i class="ph-file-pdf me-2"></i>
-                                            View Initiative
+                                            View Subcounty
                                         </a>
-                                        <a href="{{route('strategic-initiatives.edit', $initiative->id)}}" class="dropdown-item">
+                                        <a href="{{route('subcounties.edit', $subcounty->id)}}" class="dropdown-item">
                                             <i class="ph-file-csv me-2"></i>
-                                            Edit Initiative
+                                            Edit Subcounty
                                         </a>
                                         <a href="#" class="dropdown-item">
                                             <i class="ph-file-doc me-2"></i>
-                                            Delete Initiative
+                                            Delete Subcounty
                                         </a>
                                     </div>
                                 </div>
@@ -82,7 +90,7 @@
                     <span class="alert-icon bg-warning text-white">
                         <i class="ph-warning-circle"></i>
                     </span>
-                    <span class="fw-semibold">No {{ $title }} in the system added yet!!</span>
+                    <span class="fw-semibold">No Subcounties in the system added yet!!</span>
                 </div>
             </div>
         @endif

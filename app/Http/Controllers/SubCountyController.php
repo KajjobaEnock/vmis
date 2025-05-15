@@ -14,7 +14,7 @@ class SubCountyController extends Controller
     public function index()
     {
         //
-        return view('settings.localization.subcounties',[
+        return view('settings.localization.subcounties.subcounties',[
             'subcounties' => SubCounty::with('county')->get(),
             'title' => 'Localization Settings',
             'subtitle' => 'Subcounties List',

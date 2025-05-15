@@ -33,7 +33,7 @@
                     <tr>
                         <th>No.</th>
                         <th>County Name</th>
-                        <th>county</th>
+                        <th>District</th>
                         <th>Region</th>
                         <th>Status</th>
                         <th>Details</th>
@@ -45,7 +45,7 @@
                     <tr>
                         <td>{{ $i++ }}</td>
                         <td><a href="{{route('counties.show', $county->id)}}">{{ $county->name }}</a></td>
-                        <td>{{ $county->distrct->name ?? '' }}</td>
+                        <td>{{ $county->district->name ?? '' }}</td>
                         <td>{{ $county->district->region->name ?? '' }}</td>
                         <td>
                             @if($county->status == 0) <span class="badge bg-warning">Inactive</span>
@@ -88,7 +88,7 @@
                     <span class="alert-icon bg-warning text-white">
                         <i class="ph-warning-circle"></i>
                     </span>
-                    <span class="fw-semibold">No {{ $title }} in the system added yet!!</span>
+                    <span class="fw-semibold">No Counties in the system added yet!!</span>
                 </div>
             </div>
         @endif

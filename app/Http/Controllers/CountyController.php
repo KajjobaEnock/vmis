@@ -14,7 +14,7 @@ class CountyController extends Controller
     public function index()
     {
         //
-        return view('settings.localization.counties',[
+        return view('settings.localization.counties.counties',[
             'counties' => County::with('district')->get(),
             'title' => 'Localization Settings',
             'subtitle' => 'Counties List',

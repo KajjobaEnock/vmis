@@ -23,7 +23,7 @@
             </div>
         @endif
 
-        @if($initiatives->count() > 0)
+        @if($ranks->count() > 0)
             @php
                 $i = 1;
             @endphp
@@ -32,21 +32,25 @@
                 <thead>
                     <tr>
                         <th>No.</th>
-                        <th>Strategic Initiative</th>
-                        <th>Strategic Objective</th>
-                        <th>Strategic Pillar</th>
+                        <th>Rank</th>
+                        <th>Code</th>
+                        <th>Status</th>
                         <th>Details</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($initiatives as $initiative)
+                    @foreach ($ranks as $rank)
                     <tr>
                         <td>{{ $i++ }}</td>
-                        <td><a href="{{route('strategic-initiatives.show', $initiative->id)}}">{{ $initiative->name }}</a></td>
-                        <td>{{ $initiative->strategicObjective->name ?? '' }}</td>
-                        <td>{{ $initiative->strategicObjective->StrategicPillar->name ?? '' }}</td>
-                        <td>{{ $initiative->details ?? '' }}</td>
+                        <td><a href="{{route('ranks.show', $rank->id)}}">{{ $rank->name }}</a></td>
+                        <td> {{ $rank->code ?? }}</td>
+                        <td>
+                            @if($rank->status == 0) <span class="badge bg-warning">Inactive</span>
+                                @elseif($rank->status == 1) <span class="badge bg-success">Active</span>
+                            @endif
+                        </td>
+                        <td>{{ $rank->details ?? '' }}</td>
                         <td class="text-center">
                             <div class="d-inline-flex">
                                 <div class="dropdown">
@@ -55,17 +59,17 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-end">
-                                        <a href="{{route('strategic-initiatives.show', $initiative->id)}}" class="dropdown-item">
+                                        <a href="{{route('ranks.show', $rank->id)}}" class="dropdown-item">
                                             <i class="ph-file-pdf me-2"></i>
-                                            View Initiative
+                                            View rank
                                         </a>
-                                        <a href="{{route('strategic-initiatives.edit', $initiative->id)}}" class="dropdown-item">
+                                        <a href="{{route('ranks.edit', $rank->id)}}" class="dropdown-item">
                                             <i class="ph-file-csv me-2"></i>
-                                            Edit Initiative
+                                            Edit rank
                                         </a>
                                         <a href="#" class="dropdown-item">
                                             <i class="ph-file-doc me-2"></i>
-                                            Delete Initiative
+                                            Delete rank
                                         </a>
                                     </div>
                                 </div>
