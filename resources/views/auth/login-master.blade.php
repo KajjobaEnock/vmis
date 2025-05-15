@@ -44,7 +44,7 @@
 
             <!-- Overlay Background -->
             <div class="bg-overlay-primary">
-                <img src="{{URL::asset('assets/images/backgrounds/image1.png')}}" class="img-fluid img-cover" alt="" style="min-height: 100%">
+                <img src="{{ URL::asset('assets/images/backgrounds/image1.png') }}" class="img-fluid img-cover" alt="" style="min-height: 100%">
             </div>
             <!-- /overlay background -->
 

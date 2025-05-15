@@ -23,10 +23,42 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="name" class="form-label">{{ __('Name') }}</label>
+                    <label for="first_name" class="form-label">{{ __('First Name') }}</label>
                     <div class="form-control-feedback form-control-feedback-start">
-                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="John Doe">
-                        @error('name')
+                        <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus placeholder="First Name">
+                        @error('first_name')
+                        <span class="invalid-feedback" role="alert">
+                            <i class="ph-x-circle me-1"></i>
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                        <div class="form-control-feedback-icon">
+                            <i class="ph-user-circle text-muted"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="last_name" class="form-label">{{ __('Last Name') }}</label>
+                    <div class="form-control-feedback form-control-feedback-start">
+                        <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name" autofocus placeholder="Last Name">
+                        @error('last_name')
+                        <span class="invalid-feedback" role="alert">
+                            <i class="ph-x-circle me-1"></i>
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                        <div class="form-control-feedback-icon">
+                            <i class="ph-user-circle text-muted"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="username" class="form-label">{{ __('Username') }}</label>
+                    <div class="form-control-feedback form-control-feedback-start">
+                        <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus placeholder="Username">
+                        @error('username')
                         <span class="invalid-feedback" role="alert">
                             <i class="ph-x-circle me-1"></i>
                             <strong>{{ $message }}</strong>
