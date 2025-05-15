@@ -1,10 +1,15 @@
 <?php
 
+use App\Http\Controllers\CountyController;
+use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EmployeeProfileController;
 use App\Http\Controllers\ExCombatantController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LimitlessController;
+use App\Http\Controllers\ParishController;
+use App\Http\Controllers\RegionController;
+use App\Http\Controllers\SubCountyController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VeteranController;
 use Illuminate\Support\Facades\Auth;
@@ -40,6 +45,14 @@ Route::group(['middleware' => 'auth'], function () {
         Route::prefix('settings')->group(function(){
             Route::resource('users', UserController::class);
             Route::resource('districts', EmployeeController::class);
+
+            Route::prefix('localization')->group(function(){
+                Route::resource('regions', RegionController::class);
+                Route::resource('districts', DistrictController::class);
+                Route::resource('counties', CountyController::class);
+                Route::resource('subcounties', SubCountyController::class);
+                Route::resource('parishes', ParishController::class);
+            });
         });
     });
 });

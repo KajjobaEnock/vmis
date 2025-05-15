@@ -14,6 +14,13 @@ class SubCountyController extends Controller
     public function index()
     {
         //
+        return view('settings.localization.subcounties',[
+            'subcounties' => SubCounty::with('county')->get(),
+            'title' => 'Localization Settings',
+            'subtitle' => 'Subcounties List',
+            'url' => 'subcounties.create',
+            'new' => 'Add New Subcounty'
+        ]);
     }
 
     /**

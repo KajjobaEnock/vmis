@@ -83,7 +83,7 @@
                         <span>General Settings</span>
                     </a>
                     <ul class="nav-group-sub collapse">
-                        <li class="nav-item"><a href="form_autocomplete" class="nav-link">Autocomplete</a></li>
+                        <li class="nav-item"><a href="{{ route('regions.index') }}" class="nav-link">Localization</a></li>
                         <li class="nav-item"><a href="form_checkboxes_radios" class="nav-link">Checkboxes &amp; radios</a></li>
                         <li class="nav-item"><a href="form_dual_listboxes" class="nav-link">Dual Listboxes</a></li>
                         <li class="nav-item"><a href="form_controls_extended" class="nav-link">Extended controls</a></li>

@@ -14,6 +14,13 @@ class CountyController extends Controller
     public function index()
     {
         //
+        return view('settings.localization.counties',[
+            'counties' => County::with('district')->get(),
+            'title' => 'Localization Settings',
+            'subtitle' => 'Counties List',
+            'url' => 'counties.create',
+            'new' => 'Add New County'
+        ]);
     }
 
     /**

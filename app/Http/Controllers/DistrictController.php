@@ -14,6 +14,13 @@ class DistrictController extends Controller
     public function index()
     {
         //
+        return view('settings.localization.districts',[
+            'districts' => District::with('region')->get(),
+            'title' => 'Localization Settings',
+            'subtitle' => 'Districts List',
+            'url' => 'districts.create',
+            'new' => 'Add New District'
+        ]);
     }
 
     /**
