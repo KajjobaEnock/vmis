@@ -53,6 +53,11 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::resource('subcounties', SubCountyController::class);
                 Route::resource('parishes', ParishController::class);
             });
+
+            //Route::resource('ranks', RankController::class);
+            Route::get('ranks',[RegionController::class,'ranks'])->name('ranks');
+            Route::resource('brigades', BrigadeController::class);
+            Route::resource('army_units', ArmyUnitController::class);
         });
     });
 });

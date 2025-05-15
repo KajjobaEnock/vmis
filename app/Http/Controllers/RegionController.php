@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rank;
 use App\Models\Region;
 use App\Http\Requests\StoreRegionRequest;
 use App\Http\Requests\UpdateRegionRequest;
@@ -20,6 +21,17 @@ class RegionController extends Controller
             'subtitle' => 'Regons List',
             'url' => 'regions.create',
             'new' => 'Add New Region'
+        ]);
+    }
+
+    public function ranks(){
+        
+        return view('settings.ranks.ranks',[
+            'ranks' => Rank::all(),
+            'title' => 'Rank Settings',
+            'subtitle' => 'Ranks List',
+            'url' => ' ',
+            'new' => 'Add New Rank'
         ]);
     }
 

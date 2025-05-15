@@ -10,7 +10,7 @@
 
     <!-- Column selectors -->
     <div class="card">
-        @include('settings.localization.header')
+        @include('settings.ranks.header')
         @if(Session::has('success'))
             <div class="card-body">
                 <div class="alert alert-success alert-icon-start alert-dismissible fade show">
@@ -43,8 +43,8 @@
                     @foreach ($ranks as $rank)
                     <tr>
                         <td>{{ $i++ }}</td>
-                        <td><a href="{{route('ranks.show', $rank->id)}}">{{ $rank->name }}</a></td>
-                        <td> {{ $rank->code ?? }}</td>
+                        <td><a href="">{{ $rank->name }}</a></td>
+                        <td> {{ $rank->code ?? ''}}</td>
                         <td>
                             @if($rank->status == 0) <span class="badge bg-warning">Inactive</span>
                                 @elseif($rank->status == 1) <span class="badge bg-success">Active</span>
@@ -59,11 +59,11 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-end">
-                                        <a href="{{route('ranks.show', $rank->id)}}" class="dropdown-item">
+                                        <a href="" class="dropdown-item">
                                             <i class="ph-file-pdf me-2"></i>
                                             View rank
                                         </a>
-                                        <a href="{{route('ranks.edit', $rank->id)}}" class="dropdown-item">
+                                        <a href="" class="dropdown-item">
                                             <i class="ph-file-csv me-2"></i>
                                             Edit rank
                                         </a>
@@ -86,7 +86,7 @@
                     <span class="alert-icon bg-warning text-white">
                         <i class="ph-warning-circle"></i>
                     </span>
-                    <span class="fw-semibold">No {{ $title }} in the system added yet!!</span>
+                    <span class="fw-semibold">No Ranks in the system added yet!!</span>
                 </div>
             </div>
         @endif

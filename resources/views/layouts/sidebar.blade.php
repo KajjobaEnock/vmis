@@ -84,7 +84,7 @@
                     </a>
                     <ul class="nav-group-sub collapse">
                         <li class="nav-item"><a href="{{ route('regions.index') }}" class="nav-link">Localization</a></li>
-                        <li class="nav-item"><a href="{{ route('ranks.index) }}" class="nav-link">Army &amp; Ranks</a></li>
+                        <li class="nav-item"><a href="{{ route('ranks') }}" class="nav-link">Army &amp; Ranks</a></li>
                     </ul>
                 </li>
                 <li class="nav-item nav-item-submenu">
