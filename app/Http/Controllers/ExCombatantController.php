@@ -6,7 +6,7 @@ use App\Models\ExCombatant;
 use App\Http\Requests\StoreExCombatantRequest;
 use App\Http\Requests\UpdateExCombatantRequest;
 use App\Models\Parish;
-use App\Models\Rank;
+use App\Models\Rank; 
 use App\Services\Veterans\VeteranService;
 
 class ExCombatantController extends Controller
@@ -51,6 +51,20 @@ class ExCombatantController extends Controller
     public function store(StoreExCombatantRequest $request)
     {
         //
+        ExCombatant::create([
+            'name' => $request->name,
+            'claimant_name' => $request->claimant_name,
+            'nin' => $request->nin,
+            'bank' => $request->bank,
+            'account_name' => $request->account_name,
+            'account_number' => $request->account_number,
+            'village' => $request->village,
+            'parish_id' => $request->parish,
+            'username' => $request->username,
+            'created_by' => Auth::id(),
+        ]);
+        return redirect()->route('users.index')
+            ->with('success','User Details successfully created.');
     }
 
     /**

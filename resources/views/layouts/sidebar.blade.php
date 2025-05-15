@@ -94,7 +94,7 @@
                     </a>
                     <ul class="nav-group-sub collapse">
                         <li class="nav-item"><a href="{{ route('users.index') }}" class="nav-link">Users List</a></li>
-                        <li class="nav-item"><a href="" class="nav-link">Army &amp; Permissions List</a></li>
+                        <li class="nav-item"><a href="" class="nav-link">Roles &amp; Permissions List</a></li>
                     </ul>
                 </li>
                 <!-- /Settings -->

@@ -129,7 +129,7 @@
 
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-lg-4">
+                                <!-- <div class="col-lg-4">
                                     <div class="mb-3">
                                         <label for="amount" class="col-form-label text-md-right">{{ __('Amount:') }} <span style="color: red;">*</span></label>
                                         <input id="amount" type="nummber" class="form-control @error('amount') is-invalid @enderror" name="amount" value="{{ old('amount') }}" placeholder="Amount">
@@ -139,7 +139,7 @@
                                             </span>
                                         @enderror
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="col-lg-4">
                                     <div class="mb-3">
@@ -164,11 +164,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div class="form-group">
-                            <div class="row">
                                 <div class="col-lg-4">
                                     <div class="mb-3">
                                         <label for="bank" class="col-form-label text-md-right">{{ __('Bank Name:') }} <span style="color: red;">*</span> </label>
@@ -180,7 +176,11 @@
                                         @enderror
                                     </div>
                                 </div>
+                            </div>
+                        </div>
 
+                        <div class="form-group">
+                            <div class="row">
                                 <div class="col-lg-4">
                                     <div class="mb-3">
                                         <label for="telephone" class="col-form-label text-md-right">{{ __('Telephone:') }} <span style="color: red;">*</span> </label>
@@ -204,11 +204,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="row">
+                                
                                 <div class="col-lg-4">
                                     <div class="mb-3">
                                         <label for="file_status" class="col-form-label text-md-right">{{ __('File Status:') }} <span style="color: red;">*</span> </label>

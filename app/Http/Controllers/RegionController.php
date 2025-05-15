@@ -30,7 +30,7 @@ class RegionController extends Controller
             'ranks' => Rank::all(),
             'title' => 'Rank Settings',
             'subtitle' => 'Ranks List',
-            'url' => ' ',
+            'url' => 'ranks.create',
             'new' => 'Add New Rank'
         ]);
     }

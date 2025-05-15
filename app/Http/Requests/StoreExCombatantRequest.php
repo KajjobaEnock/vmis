@@ -27,7 +27,7 @@ class StoreExCombatantRequest extends FormRequest
             'claimant_name' => 'required|string',
             'nin' => 'required|string|unique:ex_combatants,nin,except,id|max:13',
             'bank' => 'required|string',
-            'amount' => 'required|numeric',
+            //'amount' => 'required|numeric',
             'account_name' => 'required|string',
             'account_number' => 'required|numeric|unique:ex_combatants,account_number,except,id',
             'village' => 'required|string',

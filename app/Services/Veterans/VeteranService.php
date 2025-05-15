@@ -1,6 +1,8 @@
 <?php
     namespace App\Services\Veterans;
 
+
+use App\Models\ExCombatant;
 use App\Models\Veteran;
 use Illuminate\Support\Facades\DB;
 
@@ -19,6 +21,11 @@ use Illuminate\Support\Facades\DB;
         //Get a list of ExCombatants
         public function getExCombatants(){
             return DB::table('ex_combatants')->get();
+        }
+
+        //Retrieve a particular excombatant
+        public function getExcombatant($id){
+            return ExCombatant::find($id);
         }
     }
 
